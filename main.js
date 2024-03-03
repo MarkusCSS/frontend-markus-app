@@ -402,6 +402,11 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
        document.getElementById('galleries').style.backgroundColor='';
        document.getElementById('galleries').style.color='';
        document.querySelector('#galleries span').style.color='';
+       document.querySelectorAll('.card img').forEach(img=>{
+        img.classList.remove('.animate-out-left');
+        img.classList.add('animate-in-left');
+        img.parentNode.style.opacity='1';
+    });
        handleHeightOfPages();
        setUnderscore();
       
