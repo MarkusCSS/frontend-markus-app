@@ -270,16 +270,16 @@ function scrollAnimationCard() {
                         const imgs = imageGroups[i];
                         imgs.forEach((img, index) => {
                             console.log(index);
-                            if (img.topDifference < 0) { //SET the Animation
-                                if (img.topDifference > -450) { // Dodajte ovde uslov
+                            if (img.topDifference < -20) { //SET the Animation
+                                
                                     setTimeout(() => {
                                         const imgElement = cardsImgs[img.index];
                                         if (imgElement.classList.contains('animate-in-left')) imgElement.classList.remove('animate-in-left');
                                         imgElement.classList.add('animate-out-left');
                                         imgElement.parentNode.style.opacity='0';
                                     }, (index + 1.5) * 100);
-                                }
-                            } else if (img.topDifference > -450 && cardsImgs[img.index].classList.contains('animate-out-left')) {
+                                
+                            } else if ( cardsImgs[img.index].classList.contains('animate-out-left')) {
                                 setTimeout(() => {
                                     const imgElement = cardsImgs[img.index];
                                     if (imgElement.classList.contains('animate-out-left')) imgElement.classList.remove('animate-out-left');
@@ -459,8 +459,8 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
              document.getElementById('slider-off-btn').style.display='none';
              document.getElementById('slider').style.display='none';
              document.querySelector('.switch-to-single-gallery').style.display='block';
-             document.querySelector('#gallery-frame').style.width='';
-                document.querySelector('#gallery-frame').style.marginLeft='';
+             document.querySelector('#gallery-frame').style.width='100%';
+                document.querySelector('#gallery-frame').style.marginLeft='0px';
                 document.getElementById('galleries').style.backgroundColor='';
                 document.getElementById('galleries').style.color='';
                 document.querySelector('#galleries span').style.color='';
@@ -524,11 +524,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
            
         });
     }
-    document.addEventListener("DOMContentLoaded", function() {
-        
-        setAllClickable();
-       swiperInit();
-    });
+   
 
     
     function setImgIntoSlider(img) {
