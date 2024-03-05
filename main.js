@@ -213,32 +213,43 @@ function underscorePosition(){
     
 }
    //-------============########   SET THE ANIMATION ON SCROLL EVENT FOR CARDS ON THE MAIN PAGE  ######=========-------
-let galleries= document.getElementById('galleries');
+   var x=1;
+   var y=0;
+   let galleries= document.getElementById('galleries');
 let galleryFrame= document.getElementById('gallery-frame');
 galleries.addEventListener('wheel', function(event) {
     const deltaY = event.deltaY;
     const currentScrollTop = galleryFrame.scrollTop;
     const maxScrollTop = galleryFrame.scrollHeight - galleryFrame.clientHeight;
     
-    
+    let paramDirection;
     if (deltaY < 0 && currentScrollTop > 0) {
         galleryFrame.scrollTop -= Math.min(currentScrollTop, Math.abs(deltaY));
-        event.preventDefault(); 
+        event.preventDefault();
+        paramDirection=true; 
+        console.log('Scroll up',paramDirection);
+        
     }
     
     else if (deltaY > 0 && currentScrollTop < maxScrollTop) {
         galleryFrame.scrollTop += Math.min(maxScrollTop - currentScrollTop, deltaY);
         event.preventDefault(); 
+        paramDirection=false;
+       console.log('Scroll down',paramDirection);
+       
     }
-   scrollAnimationCard();
+   scrollAnimationCard(paramDirection);
 });
 
-function scrollAnimationCard() {
+
+
+
+function scrollAnimationCard(paramDirection) {
     if (window.innerWidth >= 992) {
+
         let cardsImgs = document.querySelectorAll('.card img');
         let imageGroups = [];
         let group = [];
-        let lastTopDifferencePercentage = null;
 
         cardsImgs.forEach((cardImg, index) => {
             // Uzimanje dimenzija roditeljskog elementa (.card)
@@ -260,50 +271,35 @@ function scrollAnimationCard() {
                 imageGroups.push(group);
                 group = [];
             }
-           
-             
-                   
-                    for (let i = imageGroups.length - 1; i >= 0; i--) {
-                        if (i === imageGroups.length - 1) {
-                            continue; // Preskačemo poslednji niz imageGroups
-                        }
-                        const imgs = imageGroups[i];
-                        imgs.forEach((img, index) => {
-                            console.log(index);
-                            if (img.topDifference < -20) { //SET the Animation
-                                
-                                    setTimeout(() => {
-                                        const imgElement = cardsImgs[img.index];
-                                        if (imgElement.classList.contains('animate-in-left')) imgElement.classList.remove('animate-in-left');
-                                        imgElement.classList.add('animate-out-left');
-                                        imgElement.parentNode.style.opacity='0';
-                                    }, (index + 1.5) * 100);
-                                
-                            } else if ( cardsImgs[img.index].classList.contains('animate-out-left')) {
-                                setTimeout(() => {
-                                    const imgElement = cardsImgs[img.index];
-                                    if (imgElement.classList.contains('animate-out-left')) imgElement.classList.remove('animate-out-left');
-                                    imgElement.classList.add('animate-in-left');
-                                    imgElement.parentNode.style.opacity='1';
-                                }, (index + 1.5) * 100);
-                            }
-                        });
-                    }
-                    
-                  
-                   
-                
-            
-
-            // Prikaz trenutnih razlika u procentima na konzoli
-            // console.log(`Trenutne razlike u visini za element ${index}: Top: ${topDifferencePercentage}%, Bottom: ${heightDifferencePercentage}%`);
-
-            
-        });
-
-       // console.log("Image groups:", imageGroups);
+   });
+   console.log(imageGroups.length);
+  
+   // Create a function for snap-scroll
+   if(paramDirection) {
+       document.getElementById('gallery-frame').scrollTo(0, 550*y);
+       if(y=0){
+        y=imageGroups.length-1;
+       } else{
+        y--;
+       }
+    
+     console.log(paramDirection);
+   }else {
+    document.getElementById('gallery-frame').scrollTo(0, 550*x);
+    
+    if(x<imageGroups.length-1) {
+        x++;
+        y=x;
+    } else{
+        x=0;
+       y=x;
     }
+    
+    console.log(x)
+   } 
 }
+ 
+} 
 
 
 

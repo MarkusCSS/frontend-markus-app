@@ -256,7 +256,7 @@ export const singleGalleryObjects = [
          ]
      },
      {
-         mainPicture: 'assets/logo.png',
+         mainPicture: 'assets/Markus-images/DSC03496.jpg',
          title: 'Third one',
          imgUrls: [
              {
