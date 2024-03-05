@@ -214,7 +214,7 @@ function underscorePosition(){
 }
    //-------============########   SET THE ANIMATION ON SCROLL EVENT FOR CARDS ON THE MAIN PAGE  ######=========-------
    var x=1;
-   var y=0;
+   
    let galleries= document.getElementById('galleries');
 let galleryFrame= document.getElementById('gallery-frame');
 galleries.addEventListener('wheel', function(event) {
@@ -275,31 +275,47 @@ function scrollAnimationCard(paramDirection) {
    console.log(imageGroups.length);
   
    // Create a function for snap-scroll
-   if(paramDirection) {
-       document.getElementById('gallery-frame').scrollTo(0, 550*y);
-       if(y=0){
-        y=imageGroups.length-1;
-       } else{
-        y--;
-       }
-    
-     console.log(paramDirection);
-   }else {
+   if(typeof paramDirection=='undefined'){
+    x=imageGroups.length-1;
     document.getElementById('gallery-frame').scrollTo(0, 550*x);
+   } else{
+    if(!paramDirection) {
     
-    if(x<imageGroups.length-1) {
-        x++;
-        y=x;
-    } else{
-        x=0;
-       y=x;
-    }
-    
-    console.log(x)
-   } 
+        document.getElementById('gallery-frame').scrollTo(0, 550*x);
+        if(x<imageGroups.length-1  ) {
+            x++;
+        } else if(x==0){
+           
+            x=1;
+        } else{
+            x=0;
+        }
+        console.log(paramDirection);
+        console.log(x)
+         
+       }else if (paramDirection) {
+        if(x==0){
+            x=imageGroups.length-2;
+            document.getElementById('gallery-frame').scrollTo(0, 550*x);
+            
+           } else{
+            x--;
+            document.getElementById('gallery-frame').scrollTo(0, 550*x);
+           }
+           
+         console.log(paramDirection);
+         console.log(x)
+       
+       } 
+   }
+
+
+  
+  
 }
  
 } 
+
 
 
 
