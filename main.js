@@ -214,7 +214,7 @@ function underscorePosition(){
 }
    //-------============########   SET THE ANIMATION ON SCROLL EVENT FOR CARDS ON THE MAIN PAGE  ######=========-------
    var x=1;
-   
+   var checkFirstXonDown=1;
    let galleries= document.getElementById('galleries');
 let galleryFrame= document.getElementById('gallery-frame');
 galleries.addEventListener('wheel', function(event) {
@@ -246,77 +246,49 @@ galleries.addEventListener('wheel', function(event) {
 
 function scrollAnimationCard(paramDirection) {
     if (window.innerWidth >= 992) {
-
         let cardsImgs = document.querySelectorAll('.card img');
         let imageGroups = [];
         let group = [];
-
-        cardsImgs.forEach((cardImg, index) => {
-            // Uzimanje dimenzija roditeljskog elementa (.card)
-            const cardRect = cardImg.getBoundingClientRect();
-            const parent = document.getElementById('gallery-frame');
-            const parentRect = parent.getBoundingClientRect();
-            const bottomDifference = cardRect.bottom - parentRect.bottom;
-            const topDifference = cardRect.top - parentRect.top;
-
-            // Razliku u visini prikažemo u procentima
-            const heightDifferencePercentage = ((bottomDifference / parentRect.height) * 100).toFixed(2);
-            const topDifferencePercentage = ((topDifference / parentRect.height) * 100).toFixed(2);
-
-            // Dodamo trenutni element u grupu
-            group.push({ index: index, heightDifference: heightDifferencePercentage, topDifference: topDifferencePercentage });
-
-            // Ako je grupa napunjena ili smo došli do kraja niza, dodajemo grupu u imageGroups i resetujemo grupu
+        cardsImgs.forEach((_, index) => {
+            group.push({ index });
             if (group.length === 3 || index === cardsImgs.length - 1) {
                 imageGroups.push(group);
                 group = [];
             }
    });
-   console.log(imageGroups.length);
-  
    // Create a function for snap-scroll
    if(typeof paramDirection=='undefined'){
     x=imageGroups.length-1;
     document.getElementById('gallery-frame').scrollTo(0, 550*x);
    } else{
     if(!paramDirection) {
-    
-        
         if(x==imageGroups.length-1  ) {
             x=0;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
         } else if(x==0){
-           
             x=1;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
         } else if(x>0 && x<imageGroups.length){
+            if(checkFirstXonDown==1){
+                x=1;
+                checkFirstXonDown++;
+                document.getElementById('gallery-frame').scrollTo(0, 550*x);
+                return
+            }
             x++;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
         }
-        console.log(paramDirection);
-        console.log(x)
-         
        }else if (paramDirection) {
         if(x==0){
             x=imageGroups.length-2;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
-            
            } else{
             x--;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
            }
-           
-         console.log(paramDirection);
-         console.log(x)
-       
        } 
    }
-
-
-  
-  
 }
- 
 } 
 
 
