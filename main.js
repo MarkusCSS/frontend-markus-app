@@ -245,7 +245,7 @@ galleries.addEventListener('wheel', function(event) {
 
 
 function scrollAnimationCard(paramDirection) {
-    if (window.innerWidth >= 992) {
+    if (window.innerWidth >= 992 ) {
         let cardsImgs = document.querySelectorAll('.card img');
         let imageGroups = [];
         let group = [];
@@ -257,6 +257,9 @@ function scrollAnimationCard(paramDirection) {
             }
    });
    // Create a function for snap-scroll
+
+     
+
    if(typeof paramDirection=='undefined'){
     x=imageGroups.length-1;
     document.getElementById('gallery-frame').scrollTo(0, 550*x);
@@ -265,6 +268,7 @@ function scrollAnimationCard(paramDirection) {
         if(x==imageGroups.length-1  ) {
             x=0;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
+               
         } else if(x==0){
             x=1;
             document.getElementById('gallery-frame').scrollTo(0, 550*x);
@@ -459,7 +463,25 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
           
      });
 
-          
+     document.querySelector('.swiper-btn-contain-cover').addEventListener('click', () => {
+        // Provera da li je kliknuto dugme
+        
+        if (window.innerWidth <= 900) {
+            console.log('radi na prvu')
+            let swiperSlides = document.querySelectorAll('.swiper-slide');
+            
+            // Iteracija kroz sve swiper-slide elemente
+            swiperSlides.forEach(slide => {
+                // Promena veličine pozadine u zavisnosti od trenutnog stanja
+                if (getComputedStyle(slide).backgroundSize === 'cover') {
+                    slide.style.backgroundSize = 'contain';
+                    
+                } else {
+                    slide.style.backgroundSize = 'cover';
+                }
+            });
+        } 
+    });      
 
      document.addEventListener('keydown', function (event) {
         
