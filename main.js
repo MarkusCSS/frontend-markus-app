@@ -243,9 +243,12 @@ galleries.addEventListener('wheel', function(event) {
 
 
 
-
+var backOnScrollBtn;
 function scrollAnimationCard(paramDirection) {
-    if (window.innerWidth >= 992 ) {
+    let wrapper= document.querySelector('.wrapper-main-galleries');
+    if (window.innerWidth >= 992  && getComputedStyle(wrapper).display=='block') {
+       
+        console.log(typeof getComputedStyle(wrapper).display);
         let cardsImgs = document.querySelectorAll('.card img');
         let imageGroups = [];
         let group = [];
@@ -292,6 +295,7 @@ function scrollAnimationCard(paramDirection) {
            }
        } 
    }
+   backOnScrollBtn=x;
 }
 } 
 
@@ -388,6 +392,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
        document.querySelector('#gallery-frame').style.width='';
        document.querySelector('#gallery-frame').style.marginTop='';
        document.querySelector('#gallery-frame').style.marginLeft='';
+       document.querySelector('#gallery-frame').scrollTo(0,550*backOnScrollBtn);
        backBtn.style.display='none';
        document.querySelector('nav').style.display='block';
        document.getElementById('slider-off-btn').style.display='none';
