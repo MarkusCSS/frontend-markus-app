@@ -1,6 +1,6 @@
 // Importovanje Swiper biblioteke
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-import { singleGalleryObjects } from './generate.js'; 
+import { singleGalleryObjects } from './generate.Galleries.js'; 
 
 
 window.onload=()=>{       
