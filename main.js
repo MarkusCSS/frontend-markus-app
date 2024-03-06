@@ -281,14 +281,17 @@ function scrollAnimationCard(paramDirection) {
    } else{
     if(!paramDirection) {
     
-        document.getElementById('gallery-frame').scrollTo(0, 550*x);
-        if(x<imageGroups.length-1  ) {
-            x++;
+        
+        if(x==imageGroups.length-1  ) {
+            x=0;
+            document.getElementById('gallery-frame').scrollTo(0, 550*x);
         } else if(x==0){
            
             x=1;
-        } else{
-            x=0;
+            document.getElementById('gallery-frame').scrollTo(0, 550*x);
+        } else if(x>0 && x<imageGroups.length){
+            x++;
+            document.getElementById('gallery-frame').scrollTo(0, 550*x);
         }
         console.log(paramDirection);
         console.log(x)
