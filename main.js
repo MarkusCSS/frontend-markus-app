@@ -132,7 +132,7 @@ function navBtn(){
             if (window.innerWidth<992){  
                 setTimeout(()=>{
                     navbarToggler.click();
-                },1000);
+                },600);
             
             }
         });
@@ -339,6 +339,8 @@ function setUnderscore(){
     underscore.style.left=`${0 -   widthOfNavLink + totalNavPadding }px`;
 }
 }
+
+
 function backToContain(){
     let swiperSlides = document.querySelectorAll('.swiper-slide');
     if (window.innerWidth > 900) {
