@@ -1,13 +1,14 @@
 // Importovanje Swiper biblioteke
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 import { generateGalleries } from './generate.Galleries.js'; 
+import { aboutMe } from './generateAboutMe.js';
 
 
 window.onload=()=>{       
     
      generateGalleriesPage();
       setAllClickable();
-     
+     generateAboutMePage();
      }  
      window.addEventListener('resize',()=>{
    
@@ -87,7 +88,15 @@ function generateGalleriesPage(){
     });   
 }
 
+function generateAboutMePage(){
+    document.getElementById('title-of-page').innerText=`${aboutMe.titleOfPage}`;
+    document.getElementById('profile-image').src=`${aboutMe.profileImage}`;
+    document.getElementById('title-of-text').innerText=`${aboutMe.titleOfText}`;
+    document.querySelector('.lead').textContent=`${aboutMe.firstText}`;
+    document.getElementById('second-text').textContent=`${aboutMe.secondText}`;
+    document.getElementById('about-me-btn').innerHTML=`${aboutMe.btnText} <i class="bi bi-chevron-right"></i> `;
 
+}
 
 
 
