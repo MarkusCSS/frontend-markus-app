@@ -4,75 +4,88 @@ import { generateGalleries } from './generate.Galleries.js';
 
 
 window.onload=()=>{       
-    // console.log('ucitavam single galleries');
-     let cardFrame=document.getElementById('firstPageCardsFrame');
-     let frameMainGrid= document.querySelector('.switch-to-single-gallery');
- 
- 
-     
-     for(let i=0;i<generateGalleries.length;i++){   
-     let singleGallery= document.createElement('div');
-     let newCard = document.createElement('div');
-      newCard.classList.add('col-12', 'ps-0', 'col-sm-6', 'col-md-6', 'col-lg-4');
-      singleGallery.classList.add('single-gallery');
-      
-     
-     
-      newCard.innerHTML =`
-     
-                             <div class="card bg-light ">
-                                 <p class="title-of-single-gallery ">${generateGalleries[i].title}</p>
-                                     <img class="img-fluid" src=${generateGalleries[i].mainPicture} alt="">
-                                
-                             </div>
-                         
-      `;
-     
-     cardFrame.appendChild(newCard);
-     
-                          
-      generateGalleries[i].imgUrls.forEach(background=>{
-           
-           let frameBetween= document.createElement('div');
-     let underGridDiv= document.createElement('div');
-       if(background.animation=='Down')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
-       if(background.animation=='Up')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
-       if(background.animation=='Right')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
-       if(background.animation=='Left')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
-      underGridDiv.classList.add('under-grid-div');
-      underGridDiv.style.backgroundImage = `url(${background.url})`;
-      frameBetween.appendChild(underGridDiv);
-      singleGallery.appendChild(frameBetween);
-      });
-      frameMainGrid.appendChild(singleGallery);
-     }
-     
-     document.querySelector('.swiper-btn-contain-cover').addEventListener('click', () => {
-         // Provera da li je kliknuto dugme
-         
-         if (window.innerWidth <= 900) {
-             console.log('radi na prvu')
-             let swiperSlides = document.querySelectorAll('.swiper-slide');
-             
-             // Iteracija kroz sve swiper-slide elemente
-             swiperSlides.forEach(slide => {
-                 // Promena veličine pozadine u zavisnosti od trenutnog stanja
-                 if (getComputedStyle(slide).backgroundSize === 'cover') {
-                     slide.style.backgroundSize = 'contain';
-                     
-                 } else {
-                     slide.style.backgroundSize = 'cover';
-                 }
-             });
-         } 
-     });   
-     
+    
+     generateGalleriesPage();
       setAllClickable();
      
      }  
+     window.addEventListener('resize',()=>{
+   
+        
+        handleHeightOfPages();
+        underscorePosition();
+        adjustBtstrpCss();
+        navBtn();
+        setUnderscore();
+        backToContain();
+       
+        });
 
 
+function generateGalleriesPage(){
+    // console.log('ucitavam single galleries');
+    let cardFrame=document.getElementById('firstPageCardsFrame');
+    let frameMainGrid= document.querySelector('.switch-to-single-gallery');
 
+
+    
+    for(let i=0;i<generateGalleries.length;i++){   
+    let singleGallery= document.createElement('div');
+    let newCard = document.createElement('div');
+     newCard.classList.add('col-12', 'ps-0', 'col-sm-6', 'col-md-6', 'col-lg-4');
+     singleGallery.classList.add('single-gallery');
+     
+    
+    
+     newCard.innerHTML =`
+    
+                            <div class="card bg-light ">
+                                <p class="title-of-single-gallery ">${generateGalleries[i].title}</p>
+                                    <img class="img-fluid" src=${generateGalleries[i].mainPicture} alt="">
+                               
+                            </div>
+                        
+     `;
+    
+    cardFrame.appendChild(newCard);
+    
+                         
+     generateGalleries[i].imgUrls.forEach(background=>{
+          
+          let frameBetween= document.createElement('div');
+    let underGridDiv= document.createElement('div');
+      if(background.animation=='Down')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
+      if(background.animation=='Up')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
+      if(background.animation=='Right')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
+      if(background.animation=='Left')      frameBetween.classList.add(`${background.shape}`,'animate__animated',`animate__backIn${background.animation}`);
+     underGridDiv.classList.add('under-grid-div');
+     underGridDiv.style.backgroundImage = `url(${background.url})`;
+     frameBetween.appendChild(underGridDiv);
+     singleGallery.appendChild(frameBetween);
+     });
+     frameMainGrid.appendChild(singleGallery);
+    }
+    
+    document.querySelector('.swiper-btn-contain-cover').addEventListener('click', () => {
+        // Provera da li je kliknuto dugme
+        
+        if (window.innerWidth <= 900) {
+            console.log('radi na prvu')
+            let swiperSlides = document.querySelectorAll('.swiper-slide');
+            
+            // Iteracija kroz sve swiper-slide elemente
+            swiperSlides.forEach(slide => {
+                // Promena veličine pozadine u zavisnosti od trenutnog stanja
+                if (getComputedStyle(slide).backgroundSize === 'cover') {
+                    slide.style.backgroundSize = 'contain';
+                    
+                } else {
+                    slide.style.backgroundSize = 'cover';
+                }
+            });
+        } 
+    });   
+}
 
 
 
@@ -600,21 +613,11 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
    
     
    
-/*========######## GENERISANJE DOM CARD; SINGLE GALLERY #########========*/ 
+
 
     
 
-    window.addEventListener('resize',()=>{
    
-        
-        handleHeightOfPages();
-        underscorePosition();
-        adjustBtstrpCss();
-        navBtn();
-        setUnderscore();
-        backToContain();
-       
-        });
 
 
 
