@@ -7,19 +7,22 @@ export const aboutMe = {
     "btnText":"Discover-",
     "accordions":[
          {
+            "id":1,
             "titleOfAccordion":"Discover What's Available",
             "bodyOfAccordion":[
-                {
+                {   "id":1,
                     "question":"Where exactly are you located?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
                 },
                 {
+                    "id":2,
                     "question":"How much does it cost to attend?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
                 },
                 {
+                    "id":3,
                     "question":"What do I need to Know?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
@@ -27,19 +30,47 @@ export const aboutMe = {
         ]
          },
          {
+            "id":2,
             "titleOfAccordion":"Frequently Asked Questions",
             "bodyOfAccordion":[
                 {
-                    "question":"Where exactly are you located?",
+                    "id":1,
+                    "question":"What are you seraching for?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
                 },
                 {
+                    "id":2,
                     "question":"How much does it cost to attend?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
                 },
                 {
+                    "id":3,
+                    "question":"What do I need to Know?",
+                    "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
+                    
+                },
+        ]
+         },
+         {
+            "id":3,
+            "titleOfAccordion":"For checking purposes and generating from database",
+            "bodyOfAccordion":[
+                {
+                    "id":1,
+                    "question":"What are you seraching for?",
+                    "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
+                    
+                },
+                {
+                    "id":2,
+                    "question":"How much does it cost to attend?",
+                    "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
+                    
+                },
+                {
+                    "id":3,
                     "question":"What do I need to Know?",
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     

@@ -89,13 +89,70 @@ function generateGalleriesPage(){
 }
 
 function generateAboutMePage(){
+    let accordionsBoard = document.getElementById('accordions-board');
     document.getElementById('title-of-page').innerText=`${aboutMe.titleOfPage}`;
     document.getElementById('profile-image').src=`${aboutMe.profileImage}`;
     document.getElementById('title-of-text').innerText=`${aboutMe.titleOfText}`;
     document.querySelector('.lead').textContent=`${aboutMe.firstText}`;
     document.getElementById('second-text').textContent=`${aboutMe.secondText}`;
     document.getElementById('about-me-btn').innerHTML=`${aboutMe.btnText} <i class="bi bi-chevron-right"></i> `;
-
+    aboutMe.accordions.forEach((accordion)=>{
+       
+    /*  accordion.bodyOfAccordion.forEach(body=>{
+        console.log(body.id)
+    })*/
+    for(let x=0; x<accordion.bodyOfAccordion.length; x++){
+        console.log(x, accordion.bodyOfAccordion.length)
+    }
+       accordionsBoard.innerHTML +=`
+       <section class="drop-down-info" id="questions${accordion.id}1">
+          
+          <div class="container-fluid container-lg">
+          <h2 class="text-center mb-4">${accordion.titleOfAccordion}</h2>
+          <div class="accordion" id="questions${accordion.id}">
+          <div class="accordion-item">
+          <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question${accordion.id}1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          ${accordion.bodyOfAccordion[0].question}
+          </button>
+          </h2>
+          <div id="question${accordion.id}1" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+          ${accordion.bodyOfAccordion[0].answer}
+          </div>
+          </div>
+          </div>
+          <div class="accordion-item">
+          <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question${accordion.id}2">
+          ${accordion.bodyOfAccordion[1].question}
+          </button>
+          </h2>
+          <div id="question${accordion.id}2" class="accordion-collapse collapse">
+          <div class="accordion-body">
+          ${accordion.bodyOfAccordion[1].answer}
+          </div>
+          </div>
+          </div>
+          <div class="accordion-item">
+          <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question${accordion.id}3" >
+          ${accordion.bodyOfAccordion[2].question}
+          </button>
+          </h2>
+          <div id="question${accordion.id}3" class="accordion-collapse collapse" data-bs-parent="#questions${accordion.id}">
+          <div class="accordion-body">
+          
+          ${accordion.bodyOfAccordion[2].answer}
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+</section>
+       `;
+    
+    });
 }
 
 
