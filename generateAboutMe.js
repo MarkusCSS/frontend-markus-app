@@ -75,6 +75,12 @@ export const aboutMe = {
                     "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
                     
                 },
+                {
+                    "id":4,
+                    "question":"What do I need to Know?",
+                    "answer":" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor molestias omnis necessitatibus saepe officia impedit minus, pariatur distinctio odit illo, consequatur harum voluptate earum sequi labore quibusdam esse modi provident corporis blanditiis autem, ex nam voluptates? Asperiores, earum corrupti rem dignissimos eos nam maxime illo animi veritatis provident laborum quidem?",
+                    
+                },
         ]
          },
     ],
