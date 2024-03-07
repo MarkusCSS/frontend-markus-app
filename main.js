@@ -1,6 +1,6 @@
 // Importovanje Swiper biblioteke
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-import { singleGalleryObjects } from './generate.Galleries.js'; 
+import { generateGalleries } from './generate.Galleries.js'; 
 
 
 window.onload=()=>{       
@@ -10,7 +10,7 @@ window.onload=()=>{
  
  
      
-     for(let i=0;i<singleGalleryObjects.length;i++){   
+     for(let i=0;i<generateGalleries.length;i++){   
      let singleGallery= document.createElement('div');
      let newCard = document.createElement('div');
       newCard.classList.add('col-12', 'ps-0', 'col-sm-6', 'col-md-6', 'col-lg-4');
@@ -21,8 +21,8 @@ window.onload=()=>{
       newCard.innerHTML =`
      
                              <div class="card bg-light ">
-                                 <p class="title-of-single-gallery ">${singleGalleryObjects[i].title}</p>
-                                     <img class="img-fluid" src=${singleGalleryObjects[i].mainPicture} alt="">
+                                 <p class="title-of-single-gallery ">${generateGalleries[i].title}</p>
+                                     <img class="img-fluid" src=${generateGalleries[i].mainPicture} alt="">
                                 
                              </div>
                          
@@ -31,7 +31,7 @@ window.onload=()=>{
      cardFrame.appendChild(newCard);
      
                           
-      singleGalleryObjects[i].imgUrls.forEach(background=>{
+      generateGalleries[i].imgUrls.forEach(background=>{
            
            let frameBetween= document.createElement('div');
      let underGridDiv= document.createElement('div');

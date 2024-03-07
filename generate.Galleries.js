@@ -1,4 +1,4 @@
-export const singleGalleryObjects = [
+export const generateGalleries = [
     {
          mainPicture: 'assets/Markus-images/DSC03443-Enhanced-NR.jpg',
          title: 'New one',
