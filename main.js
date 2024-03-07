@@ -2,14 +2,23 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 import { generateGalleries } from './generate.Galleries.js'; 
 import { aboutMe } from './generateAboutMe.js';
+import { contact } from './generateContact.js';
 
 
 window.onload=()=>{       
-    
-     generateGalleriesPage();
-      setAllClickable();
-     generateAboutMePage();
+    reloadDataBases();
+     
      }  
+
+
+function reloadDataBases(){
+    generateGalleriesPage();
+    colorsAndBackgrouns();
+   generateAboutMePage();
+   generateContactPage();
+   setAllClickable();
+}
+
      window.addEventListener('resize',()=>{
    
         
@@ -132,7 +141,20 @@ function generateAboutMePage(){
     });
 }
 
+function generateContactPage(){
+let contactInfo = document.getElementById('info-items');
+contact.forEach(itemObject=>{
+   contactInfo.innerHTML+=`
+   <li class="list-group-item border-0 border-bottom">
+   <span class="fw-bold">${itemObject.item}</span>${itemObject.info}
+</li>
+   `;
+});
+}
 
+function colorsAndBackgrouns(){
+
+}
 
 
 
