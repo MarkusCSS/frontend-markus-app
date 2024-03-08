@@ -106,8 +106,9 @@ function generateAboutMePage(){
     document.getElementById('title-of-text').innerText = `${aboutMe.titleOfText}`;
     document.querySelector('.lead').textContent = `${aboutMe.firstText}`;
     document.getElementById('second-text').textContent = `${aboutMe.secondText}`;
-    document.getElementById('about-me-btn').innerHTML = `${aboutMe.btnText} <i class="bi bi-chevron-right"></i> `;
-    
+    document.getElementById('about-me-btn').innerHTML = `${aboutMe.btnText} `;
+    document.getElementById('about-me-btn').classList.add('bg-warning')
+
     aboutMe.accordions.forEach((accordion) => {
         let accordionHTML = `
             <section class="drop-down-info" id="questions${accordion.id}1">
@@ -120,7 +121,7 @@ function generateAboutMePage(){
             accordionHTML += `
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button${index === 0 ? '' : ' collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#question${accordion.id}${index + 1}">
+                        <button class="accordion-button${index === 0 ? '' : ' collapsed'} btn " type="button" data-bs-toggle="collapse" data-bs-target="#question${accordion.id}${index + 1}">
                             ${item.question}
                         </button>
                     </h2>
@@ -156,17 +157,21 @@ contact.forEach(itemObject=>{
 
 function colorsAndBackgrouns(){
       colorsBackgrounds.forEach(colBac=>{
-        console.log(colBac)
+        console.log(colBac.id)
         if(colBac.id==1){              
-            document.querySelector('.navbar ').style.color=`${colBac.color}`;
+            document.querySelector('.navbar ').style.color=colBac.color;
             document.querySelectorAll('.navbar a').forEach(link => {
                 link.style.color = `${colBac.color}`; // Postavljamo boju linkova
             });
-            document.querySelector('.navbar').style.background=`${colBac.backgroundUrl}`;
-            document.getElementById('galleries').style.color=`${colBac.color}`;
+            document.querySelector('.navbar').style.background=colBac.backgroundUrl;
+            document.getElementById('galleries').style.color=colBac.color;
             document.querySelector('body').style.background=colBac.backgroundUrl;
-            document.getElementById('galleries').style.background=`${colBac.backgroundUrl}`;
-            document.getElementById('slider').style.background=`${colBac.backgroundUrl}`;
+            document.getElementById('galleries').style.background=colBac.backgroundUrl;
+            document.getElementById('about-me').style.background=colBac.backgroundUrl;
+            document.getElementById('about-me').style.background=colBac.backgroundUrl;
+            document.getElementById('contact').style.background=colBac.backgroundUrl;
+            document.querySelectorAll('.form-control').forEach(e=>e.style.backgroundColor=colBac.colorOfContactInfo);
+            document.querySelectorAll('.list-group-item').forEach(e=>e.style.backgroundColor=colBac.colorsOfContactQuestion);
            let galleryFrame=document.getElementById('gallery-frame');
            galleryFrame.style.setProperty('--thumb-color', colBac.color);
            
@@ -174,11 +179,18 @@ function colorsAndBackgrouns(){
             document.querySelectorAll('.nav-item').forEach(item=>{
                 item.style.borderColor=colBac.color;
             });
-            
-    
+        }
+        if(colBac.id==2){
+            document.getElementById('slider').style.background=colBac.backgroundUrl;
+            }
+      if(colBac.id==4){
+        console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl)
+       // document.getElementById('contact').style.backgroundImage = `url(${colBac.backgroundUrl})`; Paten for pictures
+        }
+      
   
             
-        }
+       
       });
 }
 

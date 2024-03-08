@@ -1,8 +1,10 @@
 export const colorsBackgrounds =[    
     {
         "id":1,
-        "backgroundUrl":"white",
-        "color":"rgba(0,0,0,1)"
+        "backgroundUrl":"lightblue",
+        "color":"rgba(0,0,0,1)",
+        "colorOfContactInfo":"rgba(0,0,0,.0356)",
+        "colorsOfContactQuestion":"rgba(0,0,0,.05)"
     },
     {
         "id":2,
@@ -19,4 +21,4 @@ export const colorsBackgrounds =[
         "backgroundUrl":"white",
         "color":"rgba(0,0,0,1)"
     },
-]
+];
