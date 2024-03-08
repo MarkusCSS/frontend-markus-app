@@ -3,6 +3,7 @@ import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 import { generateGalleries } from './generate.Galleries.js'; 
 import { aboutMe } from './generateAboutMe.js';
 import { contact } from './generateContact.js';
+import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 
 
 window.onload=()=>{       
@@ -13,9 +14,10 @@ window.onload=()=>{
 
 function reloadDataBases(){
     generateGalleriesPage();
-    colorsAndBackgrouns();
+    
    generateAboutMePage();
    generateContactPage();
+   colorsAndBackgrouns();
    setAllClickable();
 }
 
@@ -153,7 +155,31 @@ contact.forEach(itemObject=>{
 }
 
 function colorsAndBackgrouns(){
-
+      colorsBackgrounds.forEach(colBac=>{
+        console.log(colBac)
+        if(colBac.id==1){              
+            document.querySelector('.navbar ').style.color=`${colBac.color}`;
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.style.color = `${colBac.color}`; // Postavljamo boju linkova
+            });
+            document.querySelector('.navbar').style.background=`${colBac.backgroundUrl}`;
+            document.getElementById('galleries').style.color=`${colBac.color}`;
+            document.querySelector('body').style.background=colBac.backgroundUrl;
+            document.getElementById('galleries').style.background=`${colBac.backgroundUrl}`;
+            document.getElementById('slider').style.background=`${colBac.backgroundUrl}`;
+           let galleryFrame=document.getElementById('gallery-frame');
+           galleryFrame.style.setProperty('--thumb-color', colBac.color);
+           
+          // document.querySelector('.navbar-light .navbar-toggler').borderColor= colBac.color; solve the toggler-color
+            document.querySelectorAll('.nav-item').forEach(item=>{
+                item.style.borderColor=colBac.color;
+            });
+            
+    
+  
+            
+        }
+      });
 }
 
 
@@ -476,9 +502,9 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
        document.querySelector('nav').style.display='block';
        document.getElementById('slider-off-btn').style.display='none';
        document.getElementById('slider').style.display='none';
-       document.getElementById('galleries').style.backgroundColor='';
-       document.getElementById('galleries').style.color='';
-       document.querySelector('#galleries span').style.color='';
+     //  document.getElementById('galleries').style.backgroundColor='';
+     //  document.getElementById('galleries').style.color='';
+     //  document.querySelector('#galleries span').style.color='';
        document.querySelectorAll('.card img').forEach(img=>{
         img.classList.remove('.animate-out-left');
         img.classList.add('animate-in-left');
@@ -497,11 +523,11 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
                // console.log(e.target.parentNode.parentNode)//pronadjena .sinle-gallery za swiper
                 setImgIntoSlider(e.target)
                 document.getElementById('slider-off-btn').style.display='block';
-                document.getElementById('galleries').style.backgroundColor='white';
-                document.getElementById('galleries').style.color='black';
-                document.querySelector('#galleries span').style.color='black';
-                document.querySelectorAll('.swiper-slide').forEach(single=>single.style.backgroundColor='transparent')
-                document.getElementById('galleries').style.color='white';
+               // document.getElementById('galleries').style.backgroundColor='white';
+               // document.getElementById('galleries').style.color='black';
+              //  document.querySelector('#galleries span').style.color='black';
+              //  document.querySelectorAll('.swiper-slide').forEach(single=>single.style.backgroundColor='transparent')
+               // document.getElementById('galleries').style.color='white';
                 document.getElementById('slider').style.display='flex';
                 document.querySelector('.switch-to-single-gallery').style.display='none';
                 document.querySelector('#gallery-frame').style.width='103%';
@@ -538,9 +564,9 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
              document.querySelector('.switch-to-single-gallery').style.display='block';
              document.querySelector('#gallery-frame').style.width='100%';
                 document.querySelector('#gallery-frame').style.marginLeft='0px';
-                document.getElementById('galleries').style.backgroundColor='';
-                document.getElementById('galleries').style.color='';
-                document.querySelector('#galleries span').style.color='';
+              //  document.getElementById('galleries').style.backgroundColor='';
+              //  document.getElementById('galleries').style.color='';
+              //  document.querySelector('#galleries span').style.color='';
                 
             });
           }
