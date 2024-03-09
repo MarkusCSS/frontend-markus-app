@@ -167,7 +167,7 @@ function colorsAndBackgrouns(){
             }
       if(colBac.id==4){
         console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl)
-       // document.getElementById('contact').style.backgroundImage = `url(${colBac.backgroundUrl})`; Paten for pictures
+       // document.getElementById('contact').style.backgroundImage = `url(${colBac.backgroundUrl})`; Patern for pictures
         }
       
   

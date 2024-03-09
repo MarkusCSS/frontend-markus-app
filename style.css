@@ -312,6 +312,10 @@ html,body{
   
 }
 @media screen and (max-width:690px) {
+    .loadingAnimation img {
+       width: 330px;
+       height: auto;
+    }
     #gallery-frame .card  {
         width: 225px;
         height: 330px;
@@ -344,6 +348,10 @@ html,body{
     }
 }
 @media screen and (max-width:550px) {
+    .loadingAnimation img {
+        width: 280px;
+        height: auto;
+     }
     #gallery-frame  {
         margin-left: 0px;
     }
