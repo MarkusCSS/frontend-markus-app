@@ -13,8 +13,7 @@ window.onload=()=>{
 
 
 function reloadDataBases(){
-    generateGalleriesPage();
-    
+   generateGalleriesPage();
    generateAboutMePage();
    generateContactPage();
    colorsAndBackgrouns();
@@ -158,30 +157,13 @@ contact.forEach(itemObject=>{
 function colorsAndBackgrouns(){
       colorsBackgrounds.forEach(colBac=>{
         console.log(colBac.id)
-        if(colBac.id==1){              
-            document.querySelector('.navbar ').style.color=colBac.color;
-            document.querySelectorAll('.navbar a').forEach(link => {
-                link.style.color = `${colBac.color}`; // Postavljamo boju linkova
-            });
-            document.querySelector('.navbar').style.background=colBac.backgroundUrl;
-            document.getElementById('galleries').style.color=colBac.color;
-            document.querySelector('body').style.background=colBac.backgroundUrl;
-            document.getElementById('galleries').style.background=colBac.backgroundUrl;
-            document.getElementById('about-me').style.background=colBac.backgroundUrl;
-            document.getElementById('about-me').style.background=colBac.backgroundUrl;
-            document.getElementById('contact').style.background=colBac.backgroundUrl;
-           // document.querySelectorAll('.form-control').forEach(e=>e.style.backgroundColor=colBac.colorOfContactInfo);
-            document.querySelectorAll('.list-group-item').forEach(e=>e.style.backgroundColor=colBac.colorsOfContactQuestion);
-           let galleryFrame=document.getElementById('gallery-frame');
-           galleryFrame.style.setProperty('--thumb-color', colBac.color);
-           
-          // document.querySelector('.navbar-light .navbar-toggler').borderColor= colBac.color; solve the toggler-color
-            document.querySelectorAll('.nav-item').forEach(item=>{
-                item.style.borderColor=colBac.color;
-            });
+        if(colBac.id==1){        
+            console.log(colBac)    ;  
+          basicColorsAndBackgrounds(colorsBackgrounds);
         }
         if(colBac.id==2){
-            document.getElementById('slider').style.background=colBac.backgroundUrl;
+            colorsBackgroundsGalleriesPage(colorsBackgrounds)
+           
             }
       if(colBac.id==4){
         console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl)
@@ -194,12 +176,44 @@ function colorsAndBackgrouns(){
       });
 }
 
+function basicColorsAndBackgrounds(colorsBackgrounds){
+   
+        let colBac=colorsBackgrounds[0];
+     
+    document.querySelector('.navbar ').style.color=colBac.color;
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.style.color = `${colBac.color}`; // Postavljamo boju linkova
+    });
+    document.querySelector('.navbar').style.background=colBac.backgroundUrl;
+    document.getElementById('galleries').style.color=colBac.color;
+    document.querySelector('body').style.background=colBac.backgroundUrl;
+    document.getElementById('galleries').style.background=colBac.backgroundUrl;
+    document.getElementById('about-me').style.background=colBac.backgroundUrl;
+    document.getElementById('about-me').style.background=colBac.backgroundUrl;
+    document.getElementById('contact').style.background=colBac.backgroundUrl;
+   // document.querySelectorAll('.form-control').forEach(e=>e.style.backgroundColor=colBac.colorOfContactInfo);
+    document.querySelectorAll('.list-group-item').forEach(e=>e.style.backgroundColor=colBac.colorsOfContactQuestion);
+   let galleryFrame=document.getElementById('gallery-frame');
+   galleryFrame.style.setProperty('--thumb-color', colBac.color);
+   
+  // document.querySelector('.navbar-light .navbar-toggler').borderColor= colBac.color; solve the toggler-color
+    document.querySelectorAll('.nav-item').forEach(item=>{
+        item.style.borderColor=colBac.color;
+    });
+}
 
 
+function colorsBackgroundsGalleriesPage(colorsBackgrounds){
+    let colBac=colorsBackgrounds[1];
+    document.getElementById('slider').style.background=colBac.backgroundUrl;
+}
 
-
-
-
+function colorsBackgroundsAboutMePage (colorsBackgrounds){
+    let colBac=colorsBackgrounds[2];
+}
+function colorsBackgroundsContactPage(colorsBackgrounds){
+    let colBac=colorsBackgrounds[3];
+}
 
 
 
