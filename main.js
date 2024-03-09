@@ -170,7 +170,7 @@ function colorsAndBackgrouns(){
             document.getElementById('about-me').style.background=colBac.backgroundUrl;
             document.getElementById('about-me').style.background=colBac.backgroundUrl;
             document.getElementById('contact').style.background=colBac.backgroundUrl;
-            document.querySelectorAll('.form-control').forEach(e=>e.style.backgroundColor=colBac.colorOfContactInfo);
+           // document.querySelectorAll('.form-control').forEach(e=>e.style.backgroundColor=colBac.colorOfContactInfo);
             document.querySelectorAll('.list-group-item').forEach(e=>e.style.backgroundColor=colBac.colorsOfContactQuestion);
            let galleryFrame=document.getElementById('gallery-frame');
            galleryFrame.style.setProperty('--thumb-color', colBac.color);

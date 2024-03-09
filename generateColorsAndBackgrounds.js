@@ -3,8 +3,7 @@ export const colorsBackgrounds =[
         "id":1,
         "backgroundUrl":"lightblue",
         "color":"rgba(0,0,0,1)",
-        "colorOfContactInfo":"rgba(0,0,0,.0356)",
-        "colorsOfContactQuestion":"rgba(0,0,0,.05)"
+        "colorsOfContactQuestion":"rgb(0,0,0,.125)"
     },
     {
         "id":2,
