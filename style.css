@@ -316,6 +316,11 @@ html,body{
        width: 330px;
        height: auto;
     }
+    .navbar-brand img{
+        border-radius: 10%;
+        width: 80px;
+        height: auto;
+    }
     #gallery-frame .card  {
         width: 225px;
         height: 330px;
@@ -352,6 +357,11 @@ html,body{
         width: 280px;
         height: auto;
      }
+     .navbar-brand img{
+        border-radius: 10%;
+        width: 65px;
+        height: auto;
+    }
     #gallery-frame  {
         margin-left: 0px;
     }

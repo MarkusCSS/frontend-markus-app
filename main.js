@@ -518,6 +518,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
  
    
     backBtn.addEventListener('click',()=>{
+        basicColorsAndBackgrounds(colorsBackgrounds); 
        document.querySelector('.wrapper-main-galleries').style.display='block';
        document.querySelector('.switch-to-single-gallery').style.display='none';
        document.querySelector('#gallery-frame').style.width='';
@@ -549,7 +550,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
                // console.log(e.target.parentNode.parentNode)//pronadjena .sinle-gallery za swiper
                 setImgIntoSlider(e.target)
                 document.getElementById('slider-off-btn').style.display='block';
-               // document.getElementById('galleries').style.backgroundColor='white';
+                document.getElementById('galleries').style.backgroundColor='white';
                // document.getElementById('galleries').style.color='black';
               //  document.querySelector('#galleries span').style.color='black';
               //  document.querySelectorAll('.swiper-slide').forEach(single=>single.style.backgroundColor='transparent')
@@ -585,6 +586,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
 
             if(document.getElementById('slider-off-btn')){   
             document.getElementById('slider-off-btn').addEventListener('click',()=>{
+                
              document.getElementById('slider-off-btn').style.display='none';
              document.getElementById('slider').style.display='none';
              document.querySelector('.switch-to-single-gallery').style.display='block';
