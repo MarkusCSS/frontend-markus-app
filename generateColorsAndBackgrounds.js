@@ -14,7 +14,8 @@ export const colorsBackgrounds =[
         "id":3,
         "backgroundUrl":"transparent",
         "color":"rgba(250,250,250,1)",
-        "textBackground":"assets/backgrounds/large/man-3672010_1920.jpg",
+        "profileOutline":"rgba(250,250,250,1)",
+        "textBackgroundLarge":"assets/backgrounds/large/man-3672010_1920.jpg",
     },
     {
         "id":4,

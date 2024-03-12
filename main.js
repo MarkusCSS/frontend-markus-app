@@ -22,7 +22,7 @@ function reloadDataBases(){
 
      window.addEventListener('resize',()=>{
    
-        
+        colorsBackgroundsAboutMePage (colorsBackgrounds);
         handleHeightOfPages();
         underscorePosition();
         adjustBtstrpCss();
@@ -218,8 +218,13 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 function colorsBackgroundsAboutMePage (colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     
-    document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackground})`;
+   if(window.innerWidth>992) {
+    document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
+   } else {
+    document.getElementById('learn').style.backgroundImage=``;
+   }
     document.getElementById('text-about-me').style.color=colBac.color;
+    document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
     document.getElementById('about-me-btn').style.color=colBac.color;
 }
 function colorsBackgroundsContactPage(colorsBackgrounds){
