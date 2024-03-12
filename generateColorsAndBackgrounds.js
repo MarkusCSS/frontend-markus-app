@@ -12,12 +12,16 @@ export const colorsBackgrounds =[
     },
     {
         "id":3,
-        "backgroundUrl":"white",
-        "color":"rgba(0,0,0,1)"
+        "backgroundUrl":"transparent",
+        "color":"rgba(250,250,250,1)",
+        "textBackground":"assets/backgrounds/large/man-3672010_1920.jpg",
     },
     {
         "id":4,
-        "backgroundUrl":"white",
-        "color":"rgba(0,0,0,1)"
+        "backgroundUrl":"transparent",
+        "color":"rgba(250,250,250,1)",
+        "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
+        
+
     },
 ];

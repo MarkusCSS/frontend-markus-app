@@ -165,9 +165,14 @@ function colorsAndBackgrouns(){
             colorsBackgroundsGalleriesPage(colorsBackgrounds)
            
             }
+        if(colBac.id==3){
+           
+            colorsBackgroundsAboutMePage(colorsBackgrounds)
+           
+            }
       if(colBac.id==4){
-        console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl)
-       // document.getElementById('contact').style.backgroundImage = `url(${colBac.backgroundUrl})`; Patern for pictures
+        console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl);
+        colorsBackgroundsContactPage(colorsBackgrounds);
         }
       
   
@@ -212,9 +217,22 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 
 function colorsBackgroundsAboutMePage (colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
+    
+    document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackground})`;
+    document.getElementById('text-about-me').style.color=colBac.color;
+    document.getElementById('about-me-btn').style.color=colBac.color;
 }
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
+    console.log('test',colBac)
+    
+    document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
+    document.getElementById('ask-section').style.color=colBac.color;
+    document.getElementById('title-of-contact').style.color=colBac.color;
+    let placeHolder =document.getElementById('textarea');
+    placeHolder.style.setProperty('--placeholder-color', colBac.color);
+    
+    document.querySelectorAll('.list-group-item ').forEach(item=>item.style.color=colBac.color);
 }
 
 

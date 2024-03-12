@@ -229,6 +229,11 @@ html,body{
     display: grid;
     position: relative;
 }
+#profile-image{
+    outline: 5px solid rgba(250,250,250,1);
+}
+
+
 .adjust-size-mob{
     position: absolute;
     top: 0;
@@ -256,8 +261,10 @@ html,body{
     margin-top: 50px;
 }
 #contact{
-   background-position: right bottom;
-   background-size: cover;
+    
+   background-position: center center !important;
+   background-size: 55% !important;
+   background-repeat: no-repeat !important;
   
     position: relative;
 }
@@ -268,6 +275,10 @@ html,body{
     background-color: rgba(0,0,0,.05);
     cursor: pointer;
 }
+#textarea::placeholder {
+    color: var(--placeholder-color); /* Početna boja teksta placeholdera */
+    font-weight: bold;
+  }
 #map{
     width: 100%;
     height: 450px;
