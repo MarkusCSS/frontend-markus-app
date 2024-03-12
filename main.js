@@ -539,6 +539,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
    
     backBtn.addEventListener('click',()=>{
         basicColorsAndBackgrounds(colorsBackgrounds); 
+        colorsBackgroundsContactPage(colorsBackgrounds)
        document.querySelector('.wrapper-main-galleries').style.display='block';
        document.querySelector('.switch-to-single-gallery').style.display='none';
        document.querySelector('#gallery-frame').style.width='';
