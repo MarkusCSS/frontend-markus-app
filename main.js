@@ -327,8 +327,8 @@ function navBtn(){
   setTimeout(function() {
     let navbar = document.querySelector('.navbar');
     let navTitle = document.querySelector('#nav-title');
-    navbar.style.animationDuration = '2s';
-    navTitle.style.animationDuration='2.5s';
+    navbar.style.animationDuration = '1.5s';
+    navTitle.style.animationDuration='2s';
 }, 10000); 
 
        
