@@ -21,15 +21,15 @@ function reloadDataBases(){
 }
 
      window.addEventListener('resize',()=>{
-   
-        colorsBackgroundsAboutMePage (colorsBackgrounds);
+        
+        
         handleHeightOfPages();
         underscorePosition();
         adjustBtstrpCss();
         navBtn();
         setUnderscore();
         backToContain();
-       
+        colorsBackgroundsAboutMePage(colorsBackgrounds);
         });
 
 
@@ -156,12 +156,13 @@ contact.forEach(itemObject=>{
 
 function colorsAndBackgrouns(){
       colorsBackgrounds.forEach(colBac=>{
-        console.log(colBac.id)
+      //  console.log(colBac.id)
         if(colBac.id==1){        
             console.log(colBac)    ;  
           basicColorsAndBackgrounds(colorsBackgrounds);
         }
         if(colBac.id==2){
+          //  console.log(colBac)
             colorsBackgroundsGalleriesPage(colorsBackgrounds)
            
             }
@@ -171,7 +172,7 @@ function colorsAndBackgrouns(){
            
             }
       if(colBac.id==4){
-        console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl);
+     //   console.log(typeof colBac.backgroundUrl, colBac.backgroundUrl);
         colorsBackgroundsContactPage(colorsBackgrounds);
         }
       
@@ -211,25 +212,36 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
 
 function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[1];
+    console.log(colBac.galleriesTransparentBackgroundSmall);
+       document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
+       document.getElementById('galleries').style.backgroundRepeat='no-repeat';
+       document.getElementById('galleries').style.backgroundPosition='calc(100% - 20px) calc(100% - 10px)';
+       document.getElementById('galleries').style.backgroundSize='10%';
     document.getElementById('slider').style.background=colBac.backgroundUrl;
+ 
    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
 }
 
-function colorsBackgroundsAboutMePage (colorsBackgrounds){
+function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     
-   if(window.innerWidth>992) {
+   if(window.innerWidth>=992) {
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
-   } else {
-    document.getElementById('learn').style.backgroundImage=``;
-   }
     document.getElementById('text-about-me').style.color=colBac.color;
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
     document.getElementById('about-me-btn').style.color=colBac.color;
+} 
+if (window.innerWidth<992) {
+    document.getElementById('learn').style.backgroundImage=``;
+    document.getElementById('text-about-me').style.color=colBac.smallScreenColor;
+    document.getElementById('profile-image').style.outline=`10px solid transparent`;
+    document.getElementById('about-me-btn').style.color=colBac.smallScreenColor;
+   }
+    
 }
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
-    console.log('test',colBac)
+   // console.log('test',colBac)
     
     document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
     document.getElementById('ask-section').style.color=colBac.color;
@@ -311,6 +323,13 @@ function navBtn(){
   /*  underscore.style.animation = 'none';
     underscore.style.opacity='1';*/
   },7000);
+    /* Adjusting duration of nav(move and opacity) after load animation */ 
+  setTimeout(function() {
+    let navbar = document.querySelector('.navbar');
+    let navTitle = document.querySelector('#nav-title');
+    navbar.style.animationDuration = '2s';
+    navTitle.style.animationDuration='2.5s';
+}, 10000); 
 
        
 document.querySelectorAll('.nav-item').forEach(item=>{
@@ -524,6 +543,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
     let backBtn = document.getElementById('back-from-single-to-galleries');
     card.addEventListener('click',(e)=>{
        console.log(index);
+       document.getElementById('galleries').style.backgroundImage='';
      let allGaleries =  document.querySelectorAll('.single-gallery');
      allGaleries.forEach(gallery=>gallery.style.display='grid');
      for(let i=0;i<allGaleries.length;i++){
@@ -544,7 +564,8 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
    
     backBtn.addEventListener('click',()=>{
         basicColorsAndBackgrounds(colorsBackgrounds); 
-        colorsBackgroundsContactPage(colorsBackgrounds)
+        colorsBackgroundsContactPage(colorsBackgrounds);
+        colorsBackgroundsGalleriesPage(colorsBackgrounds);
        document.querySelector('.wrapper-main-galleries').style.display='block';
        document.querySelector('.switch-to-single-gallery').style.display='none';
        document.querySelector('#gallery-frame').style.width='';

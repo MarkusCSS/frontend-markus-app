@@ -140,11 +140,12 @@ html,body{
 }
 
 #galleries{
-    background-color: rgb(255, 255, 255);
+    
     position: relative;
     display: flex;
     justify-content:left;
     align-items: start;
+   
 }
 #gallery-frame{
     margin-top: 30px;
@@ -168,7 +169,7 @@ html,body{
 @keyframes opacityGallFrame{
     0%{opacity: 0;height: 0;}
     30%{opacity: .5;height: 80%;}
-    100%{opacity: 1;height: 83%;}
+    100%{opacity: 1;height: 83%;} 
 }
 #gallery-frame::-webkit-scrollbar {width: 10px; }
   #gallery-frame::-webkit-scrollbar-thumb {background-color: var(--thumb-color);border-radius: 5px; }
