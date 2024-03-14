@@ -232,12 +232,15 @@ html,body{
 }
 
 #about-me-btn{
+    position: absolute;
+    left: 75%;
     width: fit-content;
-    margin: 0 auto;
+    transform: translateX(-50%);
     transition: .3s;
 }
-#about-me-btn:hover{
-    font-size: larger;
+#about-me-btn:hover {
+    font-size: 1.2rem;
+    color: red !important;
     transition: .3s;
 }
 

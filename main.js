@@ -509,9 +509,11 @@ document.getElementById('about-me-btn').addEventListener('click',aboutMeBtn)
 function aboutMeBtn()  {
     const element = document.getElementById('learn');
     const profileImage = document.getElementById('profile-image');
+    let soundOnClick = new Audio('assets/sounds/flash.mp3');
   
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (element.requestFullscreen) {
+            soundOnClick.play();
             element.requestFullscreen();
         } else if (element.mozRequestFullScreen) { 
             element.mozRequestFullScreen();
