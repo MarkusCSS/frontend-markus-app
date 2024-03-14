@@ -8,7 +8,7 @@ import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 
 window.onload=()=>{       
     reloadDataBases();
-     
+    
      }  
 
 
@@ -284,8 +284,10 @@ function adjustBtstrpCss() {
     }
 }
     const loadingAnimation =document.querySelector('.loadingAnimation');
+    setTimeout(()=>{ 
+        handleHeightOfPages();
+    },3000)
     
-    handleHeightOfPages();
     navBtn();
    
     setTimeout(()=>{
