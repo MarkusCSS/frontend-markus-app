@@ -1,6 +1,7 @@
 export const colorsBackgrounds =[    
     {
         "id":1,
+        "logo":"assets/logo.png",
         "backgroundUrl":"lightblue",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)"

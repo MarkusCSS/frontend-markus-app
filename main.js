@@ -185,7 +185,8 @@ function colorsAndBackgrouns(){
 function basicColorsAndBackgrounds(colorsBackgrounds){
    
         let colBac=colorsBackgrounds[0];
-     
+     document.getElementById('logo').src=colBac.logo;
+     document.getElementById('entrance-logo').src=colBac.logo;
     document.querySelector('.navbar ').style.color=colBac.color;
     document.querySelectorAll('.navbar a').forEach(link => {
         link.style.color = `${colBac.color}`; // Postavljamo boju linkova
