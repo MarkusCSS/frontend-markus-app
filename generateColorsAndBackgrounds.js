@@ -4,7 +4,8 @@ export const colorsBackgrounds =[
         "logo":"assets/logo.png",
         "backgroundUrl":"lightblue",
         "color":"rgba(0,0,0,1)",
-        "colorsOfContactQuestion":"rgb(0,0,0,.125)"
+        "colorsOfContactQuestion":"rgb(0,0,0,.125)",
+        "navbarBackgroundImg":"assets/Markus-images/DSC00887.jpg"
     },
     {
         "id":2,
@@ -29,4 +30,5 @@ export const colorsBackgrounds =[
         
 
     },
+    
 ];
