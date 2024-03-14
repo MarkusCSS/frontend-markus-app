@@ -22,7 +22,7 @@ function reloadDataBases(){
 
      window.addEventListener('resize',()=>{
         
-        
+        exitFullscreenAboutMePageOnResize()
         handleHeightOfPages();
         underscorePosition();
         adjustBtstrpCss();
@@ -226,6 +226,7 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     
    if(window.innerWidth>=992) {
+    
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
     document.getElementById('text-about-me').style.color=colBac.color;
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
@@ -233,6 +234,7 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
     document.getElementById('about-me-btn').style.display='block';
 } 
 if (window.innerWidth<992) {
+    
     document.getElementById('learn').style.backgroundImage=``;
     document.getElementById('text-about-me').style.color=colBac.smallScreenColor;
     document.getElementById('profile-image').style.outline=`10px solid transparent`;
@@ -503,38 +505,41 @@ setInterval(() => {
 }, 1000);
 
 
-document.getElementById('about-me-btn').addEventListener('click', () => {
+document.getElementById('about-me-btn').addEventListener('click',aboutMeBtn) 
+function aboutMeBtn()  {
     const element = document.getElementById('learn');
     const profileImage = document.getElementById('profile-image');
-
+  
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (element.requestFullscreen) {
             element.requestFullscreen();
-        } else if (element.mozRequestFullScreen) { /* Firefox */
+        } else if (element.mozRequestFullScreen) { 
             element.mozRequestFullScreen();
-        } else if (element.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        } else if (element.webkitRequestFullscreen) { 
             element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) { /* IE/Edge */
+        } else if (element.msRequestFullscreen) { 
             element.msRequestFullscreen();
         }
 
-        // Set the profile image width to 80% when in fullscreen
+        
         profileImage.style.maxWidth = '73%';
     } else {
-        if (document.exitFullscreen) {
+        if (document.exitFullscreen ) {
             document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { /* Firefox */
+        } else if (document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+        } else if (document.webkitExitFullscreen) { 
             document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE/Edge */
+        } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         }
 
-        // Set the profile image width to 100% when exiting fullscreen
+       
         profileImage.style.maxWidth = '100%';
     }
-});
+
+  
+};
 
 // Dodavanje event listener-a za promenu stanja punog ekrana
 document.addEventListener('fullscreenchange', () => {
@@ -543,6 +548,43 @@ document.addEventListener('fullscreenchange', () => {
         profileImage.style.maxWidth = '100%';
     }
 });
+
+
+
+function exitFullscreenAboutMePageOnResize() {
+    if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+        if (window.innerWidth < 992) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function setUnderscore(){
