@@ -4,7 +4,7 @@ export const aboutMe = {
     "titleOfText":"Learn the Fundamentals",
     "firstText":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eligendi placeat accusamus officia quisquam accusantium modi itaque alias molestiae, earum debitis nulla laudantium tenetur ducimus dignissimos, necessitatibus, qui nisi aperiam. Ea reprehenderit tempore quam harum quia vel, voluptates nisi doloribus odio reiciendis tenetur sed at nihil velit ducimus ex quae, suscipit dolorem, iste corrupti totam laborum deleniti! Voluptates libero, adipisci error optio quisquam odio, et minus vitae in eligendi quos nostrum aspernatur, velit dolorum omnis tempora molestiae unde distinctio. Sint similique sed quis quia. Ad repellat corporis consectetur facere quae cumque a, accusantium esse, ratione eum debitis rem delectus corrupti.",
     "secondText":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eligendi placeat accusamus officia quisquam accusantium modi itaque alias molestiae, earum debitis nulla laudantium tenetur ducimus dignissimos, necessitatibus, qui nisi aperiam. Ea reprehenderit tempore quam harum quia vel, voluptates nisi doloribus odio reiciendis tenetur sed at nihil velit ducimus ex quae, suscipit dolorem, iste corrupti totam laborum deleniti! Voluptates libero, adipisci error optio quisquam odio, et minus vitae in eligendi quos nostrum aspernatur, velit dolorum omnis tempora molestiae unde distinctio. Sint similique sed quis quia. Ad repellat corporis consectetur facere quae cumque a, accusantium esse, ratione eum debitis rem delectus corrupti.",
-    "btnText":"Discover more",
+    "btnText":"CHECK IT OUT",
     "accordions":[
          {
             "id":1,

@@ -230,12 +230,14 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
     document.getElementById('text-about-me').style.color=colBac.color;
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
     document.getElementById('about-me-btn').style.color=colBac.color;
+    document.getElementById('about-me-btn').style.display='block';
 } 
 if (window.innerWidth<992) {
     document.getElementById('learn').style.backgroundImage=``;
     document.getElementById('text-about-me').style.color=colBac.smallScreenColor;
     document.getElementById('profile-image').style.outline=`10px solid transparent`;
     document.getElementById('about-me-btn').style.color=colBac.smallScreenColor;
+    document.getElementById('about-me-btn').style.display='none';
    }
     
 }
@@ -499,6 +501,48 @@ setInterval(() => {
         element.innerHTML = footerText;
     });
 }, 1000);
+
+
+document.getElementById('about-me-btn').addEventListener('click', () => {
+    const element = document.getElementById('learn');
+    const profileImage = document.getElementById('profile-image');
+
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { /* Firefox */
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { /* IE/Edge */
+            element.msRequestFullscreen();
+        }
+
+        // Set the profile image width to 80% when in fullscreen
+        profileImage.style.maxWidth = '73%';
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+        }
+
+        // Set the profile image width to 100% when exiting fullscreen
+        profileImage.style.maxWidth = '100%';
+    }
+});
+
+// Dodavanje event listener-a za promenu stanja punog ekrana
+document.addEventListener('fullscreenchange', () => {
+    const profileImage = document.getElementById('profile-image');
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        profileImage.style.maxWidth = '100%';
+    }
+});
 
 
 function setUnderscore(){
