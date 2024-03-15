@@ -229,6 +229,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     });
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
+    document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
     document.getElementById('galleries').style.background=colBac.backgroundUrl;

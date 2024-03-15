@@ -5,7 +5,7 @@ export const colorsBackgrounds =[
         "backgroundUrl":"lightblue",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
-        "navbarBackgroundImg":"assets/Markus-images/DSC00887.jpg"
+        "navbarBackgroundImg":""
     },
     {
         "id":2,
