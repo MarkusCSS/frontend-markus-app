@@ -140,15 +140,14 @@ html,body{
 }
 @media  screen and (max-width:768px) {
     .page .end{
-        position: absolute;
-        bottom: 10%;
-        width: 100vw;
-        padding-bottom: 5px;
+        bottom: 8%;
         font-size: 1.2rem;
-        font-style: italic;
-        font-weight: bold;
-        opacity: 0;
-        animation:navItemOpacity 5s  linear forwards;
+    }
+}
+@media  screen and (max-width:350px) {
+    .page .end{
+        bottom: 8%;
+        font-size: 1rem;
     }
 }
 
