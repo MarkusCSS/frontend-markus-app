@@ -8,7 +8,42 @@ import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 
 window.onload=()=>{       
     reloadDataBases();
+    const loadingAnimation =document.querySelector('.loadingAnimation');
+    setTimeout(()=>{ 
+        handleHeightOfPages();
+    },3000)
     
+    navBtn();
+  
+    setTimeout(()=>{
+    loadingAnimation.style.display='none';
+    document.querySelector('.main-frame').style.display='block';
+    adjustBtstrpCss();
+    },4000);
+    setTimeout(()=>{
+        const navbarItems = document.querySelectorAll('.nav-item');
+       
+        
+        navbarItems.forEach(item => {
+            item.style.transition = 'none'; 
+            item.style.animation = 'none'; 
+            item.style.opacity='1';
+        });
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        navbarToggler.style.animation = 'none';
+        navbarToggler.style.opacity='1';
+        const underscore = document.querySelector('.underscore');
+       underscore.style.animationDuration='2s';
+      /*  underscore.style.animation = 'none';
+        underscore.style.opacity='1';*/
+      },7000);
+        /* Adjusting duration of nav(move and opacity) after load animation */ 
+      setTimeout(function() {
+        let navbar = document.querySelector('.navbar');
+        let navTitle = document.querySelector('#nav-title');
+        navbar.style.animationDuration = '1.5s';
+        navTitle.style.animationDuration='2s';
+    }, 10000); 
      }  
 
 
@@ -283,18 +318,7 @@ function adjustBtstrpCss() {
         });
     }
 }
-    const loadingAnimation =document.querySelector('.loadingAnimation');
-    setTimeout(()=>{ 
-        handleHeightOfPages();
-    },3000)
     
-    navBtn();
-   
-    setTimeout(()=>{
-    loadingAnimation.style.display='none';
-    document.querySelector('.main-frame').style.display='block';
-    adjustBtstrpCss();
-    },4000);
 
 function navBtn(){  
     underscorePosition();
@@ -313,30 +337,7 @@ function navBtn(){
         });
     });  
     
-  setTimeout(()=>{
-    const navbarItems = document.querySelectorAll('.nav-item');
-   
-    
-    navbarItems.forEach(item => {
-        item.style.transition = 'none'; 
-        item.style.animation = 'none'; 
-        item.style.opacity='1';
-    });
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    navbarToggler.style.animation = 'none';
-    navbarToggler.style.opacity='1';
-    const underscore = document.querySelector('.underscore');
-   underscore.style.animationDuration='2s';
-  /*  underscore.style.animation = 'none';
-    underscore.style.opacity='1';*/
-  },7000);
-    /* Adjusting duration of nav(move and opacity) after load animation */ 
-  setTimeout(function() {
-    let navbar = document.querySelector('.navbar');
-    let navTitle = document.querySelector('#nav-title');
-    navbar.style.animationDuration = '1.5s';
-    navTitle.style.animationDuration='2s';
-}, 10000); 
+ 
 
        
 document.querySelectorAll('.nav-item').forEach(item=>{
@@ -501,10 +502,12 @@ setInterval(() => {
     // Selektovanje elemenata sa klasom `.end` unutar elemenata sa klasom `.page`
     let footerTextElements = document.querySelectorAll('.page .end');
     
-    // Postavljanje istog footer teksta za svaki od tih elemenata
-    footerTextElements.forEach(element => {
-        element.innerHTML = footerText;
-    });
+    
+        footerTextElements.forEach(element => {
+            element.innerHTML = footerText;
+        });
+    
+   
 }, 1000);
 
 
@@ -667,9 +670,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
        document.querySelector('nav').style.display='block';
        document.getElementById('slider-off-btn').style.display='none';
        document.getElementById('slider').style.display='none';
-     //  document.getElementById('galleries').style.backgroundColor='';
-     //  document.getElementById('galleries').style.color='';
-     //  document.querySelector('#galleries span').style.color='';
+    
        document.querySelectorAll('.card img').forEach(img=>{
         img.classList.remove('.animate-out-left');
         img.classList.add('animate-in-left');
@@ -763,16 +764,16 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
 
      document.addEventListener('keydown', function (event) {
         
-        // Provjeravamo je li pritisnuta tipka lijevo
+       
         if (event.key === 'ArrowLeft') {
             
-                swiper.slidePrev(); // Pomičemo se na prethodni slajd samo ako animacija nije u tijeku
+                swiper.slidePrev(); 
                 
         }
-        // Provjeravamo je li pritisnuta tipka desno
+       
         else if (event.key === 'ArrowRight') {
             
-                swiper.slideNext(); // Pomičemo se na sljedeći slajd samo ako animacija nije u tijeku
+                swiper.slideNext(); 
                 
         }
     });
@@ -783,12 +784,12 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
 
     var swiper;
      function swiperInit() {
-        // Uništite prethodni swiper ako postoji
+        
         if (swiper )  swiper.destroy();
         
         
     
-        // Ponovo inicijalizujte swiper
+       
         swiper = new Swiper('.swiper-container', {
             navigation: {
                 nextEl: '.swiper-button-next',

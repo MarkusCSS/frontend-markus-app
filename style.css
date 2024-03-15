@@ -7,7 +7,7 @@ html,body{
     min-height: fit-content;
     background-color: white;
     width: 100vw;
-    height: 100svh;
+    
     overflow: hidden;
 }
 .loadingAnimation{
@@ -44,7 +44,7 @@ html,body{
 .navbar{
     position: absolute;
     left: -100vw;
-    animation: moveNavLoad 3.5s linear forwards;
+    animation: moveNavLoad 3s linear forwards;
 }
 #nav-title{
     
@@ -137,6 +137,19 @@ html,body{
     font-weight: bold;
     opacity: 0;
     animation:navItemOpacity 5s  linear forwards;
+}
+@media  screen and (max-width:768px) {
+    .page .end{
+        position: absolute;
+        bottom: 7%;
+        width: 100vw;
+        padding-bottom: 5px;
+        font-size: 1.3rem;
+        font-style: italic;
+        font-weight: bold;
+        opacity: 0;
+        animation:navItemOpacity 5s  linear forwards;
+    }
 }
 
 #galleries{
