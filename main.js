@@ -709,7 +709,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
 
             document.querySelector('.swiper-btn-contain-cover').addEventListener('click', () => {
                 // Provera da li je kliknuto dugme
-                document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
+                
                 if (window.innerWidth <= 900) {
                     console.log('radi na prvu')
                     let swiperSlides = document.querySelectorAll('.swiper-slide');
@@ -732,6 +732,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
             if(document.getElementById('slider-off-btn')){   
             document.getElementById('slider-off-btn').addEventListener('click',()=>{
                 basicColorsAndBackgrounds(colorsBackgrounds);
+                document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
               //  colorsBackgroundsGalleriesPage(colorsBackgrounds);  
              document.getElementById('slider-off-btn').style.display='none';
              document.getElementById('slider').style.display='none';
