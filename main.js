@@ -64,6 +64,7 @@ function reloadDataBases(){
         navBtn();
         setUnderscore();
         backToContain();
+        colorsBackgroundsGalleriesPage(colorsBackgrounds);
         colorsBackgroundsAboutMePage(colorsBackgrounds);
         });
 
@@ -226,6 +227,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.navbar a').forEach(link => {
         link.style.color = `${colBac.color}`; // Postavljamo boju linkova
     });
+    document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
@@ -251,7 +253,8 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     console.log(colBac.galleriesTransparentBackgroundSmall);
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
-       document.getElementById('galleries').style.backgroundPosition='calc(100% - 20px) calc(100% - 10px)';
+    if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition='calc(100% - 20px) calc(90%)';
+    if(window.innerWidth<=992)   document.getElementById('galleries').style.backgroundImage=``;
        document.getElementById('galleries').style.backgroundSize='10%';
     document.getElementById('slider').style.background=colBac.backgroundUrl;
  
@@ -635,8 +638,10 @@ function backToContain(){
 function setAllClickable(){  
 document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
     let backBtn = document.getElementById('back-from-single-to-galleries');
+    
     card.addEventListener('click',(e)=>{
        console.log(index);
+      
        document.getElementById('galleries').style.backgroundImage='';
      let allGaleries =  document.querySelectorAll('.single-gallery');
      allGaleries.forEach(gallery=>gallery.style.display='grid');
@@ -657,6 +662,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
  
    
     backBtn.addEventListener('click',()=>{
+        document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
         basicColorsAndBackgrounds(colorsBackgrounds); 
         colorsBackgroundsContactPage(colorsBackgrounds);
         colorsBackgroundsGalleriesPage(colorsBackgrounds);
@@ -686,6 +692,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
  let allGaleries =  document.querySelectorAll('.single-gallery ');
      allGaleries.forEach((gallery,index)=>{
             gallery.addEventListener('click',(e)=>{
+                document.querySelectorAll('.page .end').forEach(span=>span.style.display='none');
                // console.log(e.target.parentNode.parentNode)//pronadjena .sinle-gallery za swiper
                 setImgIntoSlider(e.target)
                 document.getElementById('slider-off-btn').style.display='block';
@@ -702,7 +709,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
 
             document.querySelector('.swiper-btn-contain-cover').addEventListener('click', () => {
                 // Provera da li je kliknuto dugme
-                
+                document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
                 if (window.innerWidth <= 900) {
                     console.log('radi na prvu')
                     let swiperSlides = document.querySelectorAll('.swiper-slide');
