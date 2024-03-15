@@ -140,23 +140,24 @@ html,body{
     animation:navItemOpacity 3s  linear forwards;
 }
 @media  screen and (max-width:768px) {
+    .page .end{
+        font-size: 1.1rem;
+    }
     .page:first-child .end{
         bottom: 7%;
         font-size: 1.1rem;
     }
 }
 @media  screen and (max-width:350px) {
+    .page .end{
+        font-size: .7rem;
+    }
     .page:first-child .end{
         
         font-size: .7rem;
     }
 }
-@media  screen and (max-width:350px) {
-    .page:first-child .end{
-        
-        font-size: .7rem;
-    }
-}
+
 
 
 #galleries{
