@@ -44,6 +44,30 @@ window.onload=()=>{
         navbar.style.animationDuration = '1.5s';
         navTitle.style.animationDuration='2s';
     }, 10000); 
+
+
+    setInterval(() => {
+        let currentDate = new Date();
+        let year = currentDate.getFullYear();
+        let text = `&nbsp;&nbsp;All rights reserved`;
+        
+        // Kreiranje novog span elementa za tekst "All rights reserved"
+        let textSpan = document.createElement('span');
+        textSpan.innerHTML = text;
+        textSpan.style.fontSize = '.7rem';
+        
+        let footerText = `Copyright&copy; MarkArt ${year} ${textSpan.outerHTML}`;
+        
+        // Selektovanje elemenata sa klasom `.end` unutar elemenata sa klasom `.page`
+        let footerTextElements = document.querySelectorAll('.page .end');
+        
+        
+            footerTextElements.forEach(element => {
+                element.innerHTML = footerText;
+            });
+        
+       
+    }, 1000);
      }  
 
 
@@ -228,12 +252,12 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
         link.style.color = `${colBac.color}`; // Postavljamo boju linkova
     });
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
+    document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
     document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
     document.getElementById('galleries').style.background=colBac.backgroundUrl;
-    document.getElementById('about-me').style.background=colBac.backgroundUrl;
     document.getElementById('about-me').style.background=colBac.backgroundUrl;
     document.getElementById('contact').style.background=colBac.backgroundUrl;
     document.querySelector('.switch-to-single-gallery').style.background=colBac.backgroundUrl;
@@ -255,7 +279,7 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
     if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition='calc(100% - 20px) calc(90%)';
-    if(window.innerWidth<=992)   document.getElementById('galleries').style.backgroundImage=``;
+    if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
        document.getElementById('galleries').style.backgroundSize='10%';
     document.getElementById('slider').style.background=colBac.backgroundUrl;
  
@@ -287,7 +311,9 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
    // console.log('test',colBac)
     
+    
     document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
+    
     document.getElementById('ask-section').style.color=colBac.color;
     document.getElementById('title-of-contact').style.color=colBac.color;
     let placeHolder =document.getElementById('textarea');
@@ -491,28 +517,7 @@ function scrollAnimationCard(paramDirection) {
 
 
 
-setInterval(() => {
-    let currentDate = new Date();
-    let year = currentDate.getFullYear();
-    let text = `&nbsp;&nbsp;All rights reserved`;
-    
-    // Kreiranje novog span elementa za tekst "All rights reserved"
-    let textSpan = document.createElement('span');
-    textSpan.innerHTML = text;
-    textSpan.style.fontSize = '.7rem';
-    
-    let footerText = `Copyright&copy; MarkArt ${year} ${textSpan.outerHTML}`;
-    
-    // Selektovanje elemenata sa klasom `.end` unutar elemenata sa klasom `.page`
-    let footerTextElements = document.querySelectorAll('.page .end');
-    
-    
-        footerTextElements.forEach(element => {
-            element.innerHTML = footerText;
-        });
-    
-   
-}, 1000);
+
 
 
 document.getElementById('about-me-btn').addEventListener('click',aboutMeBtn) 
@@ -647,6 +652,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
     card.addEventListener('click',(e)=>{
        console.log(index);
       
+        
        document.getElementById('galleries').style.backgroundImage='';
      let allGaleries =  document.querySelectorAll('.single-gallery');
      allGaleries.forEach(gallery=>gallery.style.display='grid');

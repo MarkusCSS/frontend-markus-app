@@ -2,17 +2,17 @@ export const colorsBackgrounds =[
     {
         "id":1,
         "logo":"assets/logo.png",
-        "backgroundUrl":"lightblue",
+        "backgroundUrl":"rgb(211, 211, 192)",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
         "navbarBackgroundImg":""
     },
     {
         "id":2,
-        "backgroundUrl":"white",
-        "color":"rgba(0,0,0,1)",
-        "galleriesTransparentBackgroundLarge":"assets/backgrounds/large/galleriesTransparentLarge.png",
+        "backgroundUrl":"white", //Slider background
+        "color":"red",
         "galleriesTransparentBackgroundSmall":"assets/backgrounds/small/galleriesTransparentSmall.png",
+        
     },
     {
         "id":3,
@@ -24,7 +24,7 @@ export const colorsBackgrounds =[
     },
     {
         "id":4,
-        "backgroundUrl":"transparent",
+        "backgroundUrl":"radial-gradient(yellow,red)",
         "color":"rgba(250,250,250,1)",
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         

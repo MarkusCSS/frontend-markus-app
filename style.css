@@ -287,9 +287,13 @@ html,body{
     border:none;
     font-weight: bold;
 }
+.testing{
+    color: rgb(211, 211, 192);
+}
 #learn{
     background-repeat: no-repeat;
 }
+
 .drop-down-info{
     margin-bottom: 50px;
     margin-top: 50px;
