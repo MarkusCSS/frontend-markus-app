@@ -2,7 +2,7 @@ export const colorsBackgrounds =[
     {
         "id":1,
         "logo":"assets/logo.png",
-        "backgroundUrl":"rgb(211, 211, 192)",
+        "backgroundUrl":"rgb(170, 170, 0)",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
         "navbarBackgroundImg":""
