@@ -527,10 +527,13 @@ function aboutMeBtn()  {
             element.requestFullscreen();
         } else if (element.mozRequestFullScreen) { 
             element.mozRequestFullScreen();
+            soundOnClick.play();
         } else if (element.webkitRequestFullscreen) { 
             element.webkitRequestFullscreen();
+            soundOnClick.play();
         } else if (element.msRequestFullscreen) { 
             element.msRequestFullscreen();
+            soundOnClick.play();
         }
 
         
@@ -548,6 +551,7 @@ function aboutMeBtn()  {
 
        
         profileImage.style.maxWidth = '100%';
+        
     }
 
   
@@ -693,6 +697,8 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
  let allGaleries =  document.querySelectorAll('.single-gallery ');
      allGaleries.forEach((gallery,index)=>{
             gallery.addEventListener('click',(e)=>{
+                let soundOnClick = new Audio('assets/sounds/flash.mp3');
+                soundOnClick.play();
                 document.querySelectorAll('.page .end').forEach(span=>span.style.display='none');
                // console.log(e.target.parentNode.parentNode)//pronadjena .sinle-gallery za swiper
                 setImgIntoSlider(e.target)

@@ -287,6 +287,9 @@ html,body{
     border:none;
     font-weight: bold;
 }
+#learn{
+    background-repeat: no-repeat;
+}
 .drop-down-info{
     margin-bottom: 50px;
     margin-top: 50px;
