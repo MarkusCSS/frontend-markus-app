@@ -304,6 +304,9 @@ html,body{
    background-repeat: no-repeat !important;
     position: relative;
 }
+#title-of-contact{
+    -webkit-text-stroke: #e30d0d 2px;
+}
 @media  screen and(max-width:767) {
     #contact{
         background-position: center center !important;

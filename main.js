@@ -534,20 +534,21 @@ function aboutMeBtn()  {
     const element = document.getElementById('learn');
     const profileImage = document.getElementById('profile-image');
     let soundOnClick = new Audio('assets/sounds/flash.mp3');
-  
+    if (!document.fullscreenElement ) soundOnClick.play();
+  setTimeout(()=>{
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (element.requestFullscreen) {
-            soundOnClick.play();
+            
             element.requestFullscreen();
         } else if (element.mozRequestFullScreen) { 
             element.mozRequestFullScreen();
-            soundOnClick.play();
+            
         } else if (element.webkitRequestFullscreen) { 
             element.webkitRequestFullscreen();
-            soundOnClick.play();
+            
         } else if (element.msRequestFullscreen) { 
             element.msRequestFullscreen();
-            soundOnClick.play();
+            
         }
 
         
@@ -567,7 +568,7 @@ function aboutMeBtn()  {
         profileImage.style.maxWidth = '100%';
         
     }
-
+  },100)
   
 };
 
