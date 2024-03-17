@@ -257,12 +257,12 @@ html,body{
     left: 75%;
     width: fit-content;
     transform: translateX(-50%);
-    transition: .3s;
+    transition: .7s;
 }
 #about-me-btn:hover {
     font-size: 1.2rem;
     color: red !important;
-    transition: .3s;
+    transition: .7s;
 }
 
 .adjust-size-mob{
@@ -286,9 +286,10 @@ html,body{
 #about-me-btn{
     border:none;
     font-weight: bold;
+    
 }
 .testing{
-    color: rgb(207, 207, 207);
+    color: lightgoldenrodyellow;
 }
 #learn{
     background-repeat: no-repeat;
@@ -299,12 +300,16 @@ html,body{
     margin-top: 50px;
 }
 #contact{
-    
    background-position: center center !important;
-   background-size: 55% !important;
    background-repeat: no-repeat !important;
-  
     position: relative;
+}
+@media  screen and(max-width:767) {
+    #contact{
+        background-position: center center !important;
+      
+        
+     }
 }
 .list-group-item{
     margin-bottom: 5px;

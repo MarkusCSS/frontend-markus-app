@@ -88,8 +88,7 @@ function reloadDataBases(){
         navBtn();
         setUnderscore();
         backToContain();
-        colorsBackgroundsGalleriesPage(colorsBackgrounds);
-        colorsBackgroundsAboutMePage(colorsBackgrounds);
+        colorsAndBackgrouns();
         });
 
 
@@ -312,7 +311,17 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
    // console.log('test',colBac)
     
     
-    document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
+    if(window.innerWidth>=768) {
+        document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
+        document.getElementById('contact').style.backgroundSize='55%';
+    } 
+    if(window.innerWidth<768) {
+        document.getElementById('contact').style.backgroundImage=`url(${colBac.smallSizeBackground})`;
+        document.getElementById('contact').style.backgroundSize='95%';
+    }  
+    if(window.innerWidth<400) {
+        document.getElementById('contact').style.backgroundSize='100%';
+    }  
     
     document.getElementById('ask-section').style.color=colBac.color;
     document.getElementById('title-of-contact').style.color=colBac.color;

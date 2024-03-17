@@ -1,7 +1,7 @@
 export const colorsBackgrounds =[    
     {
         "id":1,
-        "logo":"assets/logo.png",
+        "logo":"assets/logo(lightGoldenRodYellow).png",
         "backgroundUrl":"lightgoldenrodyellow",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
@@ -25,8 +25,9 @@ export const colorsBackgrounds =[
     {
         "id":4,
         "backgroundUrl":"radial-gradient(yellow,red)",
-        "color":"rgba(250,250,250,1)",
+        "color":"rgba(0,0,0,1)",
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
+        "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png"
         
 
     },
