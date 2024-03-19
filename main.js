@@ -9,7 +9,8 @@ import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 window.onload=()=>{       
     reloadDataBases();
     basicColorsAndBackgrounds(colorsBackgrounds);
-    colorsBackgroundsGalleriesPage(colorsBackgrounds)
+    colorsBackgroundsGalleriesPage(colorsBackgrounds);
+   
     const loadingAnimation =document.querySelector('.loadingAnimation');
     setTimeout(()=>{ 
         handleHeightOfPages();
@@ -47,7 +48,7 @@ window.onload=()=>{
         navTitle.style.animationDuration='2s';
     }, 10000); 
 
-
+    
     setInterval(() => {
         let currentDate = new Date();
         let year = currentDate.getFullYear();
@@ -70,6 +71,7 @@ window.onload=()=>{
         
        
     }, 1000);
+   
      }  
 
 
@@ -259,7 +261,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
    
     document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
-    document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundColor;
+   // document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundColor;
     document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
     
     document.getElementById('galleries').style.color=colBac.color;
@@ -283,14 +285,14 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
 function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[1];
     console.log(colBac.galleriesTransparentBackgroundSmall);
-   
+    
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
        document.getElementById('galleries').style.backgroundSize=colBac.backgroundImgSize;
     if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition=colBac.backgroundImgPosition;
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
     document.getElementById('slider').style.background=colBac.backgroundUrl;
- 
+    document.querySelector('.navbar').style.backgroundColor='transparent';
    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
 }
 
@@ -298,7 +300,10 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     document.getElementById('about-me').style.background=colBac.backgroundColor;
     
-    if(colBac.backgroundColor!='transparent') document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
+    if(colBac.backgroundColor!='transparent') {
+        document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
+        setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},300); 
+    } 
      
    if(window.innerWidth>=992) {
     
@@ -325,7 +330,10 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
    // console.log('test',colBac)
     
     document.getElementById('contact').style.background=colBac.backgroundColor;
-    if(colBac.backgroundColor!='transparent') document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
+    if(colBac.backgroundColor!='transparent'){
+        document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
+       setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},300); 
+    } 
     if(window.innerWidth>=768) {
         document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
         document.getElementById('contact').style.backgroundSize=colBac.percentOfLarge;
@@ -409,6 +417,7 @@ document.querySelectorAll('.nav-item').forEach(item=>{
             case '#galleries':
                 mainSlidePages.style.left=0 + 'vw';
               //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
+          setTimeout(()=>{ document.querySelector('.navbar').style.backgroundColor='transparent';},300)   
             if(window.innerWidth>990) {
                 underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                 break;
