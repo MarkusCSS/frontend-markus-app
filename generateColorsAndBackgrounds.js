@@ -16,6 +16,7 @@ export const colorsBackgrounds =[
         "backgroundImgSize":"10%",
         "backgroundImgPosition":"calc(100% - 20px) 90%",
         
+        
     },
     {
         "id":3,

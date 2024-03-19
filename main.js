@@ -285,24 +285,29 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
 function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[1];
     console.log(colBac.galleriesTransparentBackgroundSmall);
-    
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
        document.getElementById('galleries').style.backgroundSize=colBac.backgroundImgSize;
     if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition=colBac.backgroundImgPosition;
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
     document.getElementById('slider').style.background=colBac.backgroundUrl;
-    document.querySelector('.navbar').style.backgroundColor='transparent';
+   setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor='lightblue';},200) 
    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
 }
-
+var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     document.getElementById('about-me').style.background=colBac.backgroundColor;
     
     if(colBac.backgroundColor!='transparent') {
         document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
-        setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},300); 
+        if(colorFirstCounter==1){
+            document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;
+            colorFirstCounter++;
+        }else{
+            setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
+        }
+        
     } 
      
    if(window.innerWidth>=992) {
@@ -325,6 +330,7 @@ if (window.innerWidth<992) {
    }
     
 }
+var colorSecondCounter=1;
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
    // console.log('test',colBac)
@@ -332,7 +338,13 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
     document.getElementById('contact').style.background=colBac.backgroundColor;
     if(colBac.backgroundColor!='transparent'){
         document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
-       setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},300); 
+        if(colorSecondCounter==1){
+            document.querySelector('.navbar').style.backgroundColor='lightblue';
+            colorSecondCounter++;
+        } else{
+            setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
+        }
+       
     } 
     if(window.innerWidth>=768) {
         document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
@@ -417,7 +429,7 @@ document.querySelectorAll('.nav-item').forEach(item=>{
             case '#galleries':
                 mainSlidePages.style.left=0 + 'vw';
               //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
-          setTimeout(()=>{ document.querySelector('.navbar').style.backgroundColor='transparent';},300)   
+          setTimeout(()=>{ document.querySelector('.navbar').style.backgroundColor='transparent';},200)   
             if(window.innerWidth>990) {
                 underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                 break;
