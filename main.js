@@ -8,6 +8,8 @@ import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 
 window.onload=()=>{       
     reloadDataBases();
+    basicColorsAndBackgrounds(colorsBackgrounds);
+    colorsBackgroundsGalleriesPage(colorsBackgrounds)
     const loadingAnimation =document.querySelector('.loadingAnimation');
     setTimeout(()=>{ 
         handleHeightOfPages();
@@ -225,12 +227,12 @@ function colorsAndBackgrouns(){
         }
         if(colBac.id==2){
           //  console.log(colBac)
-            colorsBackgroundsGalleriesPage(colorsBackgrounds)
+            colorsBackgroundsGalleriesPage(colorsBackgrounds);
            
             }
         if(colBac.id==3){
            
-            colorsBackgroundsAboutMePage(colorsBackgrounds)
+            colorsBackgroundsAboutMePage(colorsBackgrounds);
            
             }
       if(colBac.id==4){
@@ -254,9 +256,12 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
         link.style.color = `${colBac.color}`; // Postavljamo boju linkova
     });
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
+   
     document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
+    document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundColor;
     document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
+    
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
     document.getElementById('galleries').style.background=colBac.backgroundUrl;
@@ -278,6 +283,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
 function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[1];
     console.log(colBac.galleriesTransparentBackgroundSmall);
+   
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
        document.getElementById('galleries').style.backgroundSize=colBac.backgroundImgSize;
@@ -291,6 +297,9 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     document.getElementById('about-me').style.background=colBac.backgroundColor;
+    
+    if(colBac.backgroundColor!='transparent') document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
+     
    if(window.innerWidth>=992) {
     
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
@@ -316,6 +325,7 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
    // console.log('test',colBac)
     
     document.getElementById('contact').style.background=colBac.backgroundColor;
+    if(colBac.backgroundColor!='transparent') document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
     if(window.innerWidth>=768) {
         document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
         document.getElementById('contact').style.backgroundSize=colBac.percentOfLarge;
@@ -398,13 +408,17 @@ document.querySelectorAll('.nav-item').forEach(item=>{
          switch (href) {
             case '#galleries':
                 mainSlidePages.style.left=0 + 'vw';
-            if(window.innerWidth>990)  underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; 
+              //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
+            if(window.innerWidth>990) {
+                underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                 break;
             case '#about-me':
+                colorsBackgroundsAboutMePage(colorsBackgrounds);
                 mainSlidePages.style.left='-100vw';
                 if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
                 break;
             case '#contact':
+                colorsBackgroundsContactPage(colorsBackgrounds)
                 mainSlidePages.style.left='-200vw';
                 if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
                 break;

@@ -5,7 +5,8 @@ export const colorsBackgrounds =[
         "backgroundUrl":"lightblue",
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
-        "navbarBackgroundImg":""
+        "navbarBackgroundImg":"",
+        "navbarBackgroundColor":"red"
     },
     {
         "id":2,
@@ -18,7 +19,7 @@ export const colorsBackgrounds =[
     },
     {
         "id":3,
-        "backgroundColor":"transparent",
+        "backgroundColor":"lightgray",
         "color":"rgba(250,250,250,1)",
         "smallScreenColor":"rgba(0,0,0,1)",
         "profileOutline":"rgba(250,250,250,1)",
@@ -31,7 +32,7 @@ export const colorsBackgrounds =[
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",
         "percentOfSmall":"95%",
         "percentOfLarge":"55%",
-        "backgroundColor":"transparent",
+        "backgroundColor":"lightyellow",
         
 
     },
