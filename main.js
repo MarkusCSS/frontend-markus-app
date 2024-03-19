@@ -88,7 +88,10 @@ function reloadDataBases(){
         navBtn();
         setUnderscore();
         backToContain();
-        colorsAndBackgrouns();
+        colorsBackgroundsAboutMePage(colorsBackgrounds);
+        colorsBackgroundsContactPage(colorsBackgrounds);
+        colorsBackgroundsGalleriesPage(colorsBackgrounds);
+       if( document.getElementById('slider').style.display=='flex') document.getElementById('galleries').style.backgroundImage=``;
         });
 
 
@@ -277,9 +280,9 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     console.log(colBac.galleriesTransparentBackgroundSmall);
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
-    if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition='calc(100% - 20px) calc(90%)';
+       document.getElementById('galleries').style.backgroundSize=colBac.backgroundImgSize;
+    if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition=colBac.backgroundImgPosition;
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
-       document.getElementById('galleries').style.backgroundSize='10%';
     document.getElementById('slider').style.background=colBac.backgroundUrl;
  
    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
@@ -287,12 +290,13 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
-    
+    document.getElementById('about-me').style.background=colBac.backgroundColor;
    if(window.innerWidth>=992) {
     
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
     document.getElementById('text-about-me').style.color=colBac.color;
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
+   
     document.getElementById('about-me-btn').style.color=colBac.color;
     document.getElementById('about-me-btn').style.display='block';
 } 
@@ -301,6 +305,7 @@ if (window.innerWidth<992) {
     document.getElementById('learn').style.backgroundImage=``;
     document.getElementById('text-about-me').style.color=colBac.smallScreenColor;
     document.getElementById('profile-image').style.outline=`10px solid transparent`;
+    
     document.getElementById('about-me-btn').style.color=colBac.smallScreenColor;
     document.getElementById('about-me-btn').style.display='none';
    }
@@ -310,21 +315,20 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
    // console.log('test',colBac)
     
-    
+    document.getElementById('contact').style.background=colBac.backgroundColor;
     if(window.innerWidth>=768) {
         document.getElementById('contact').style.backgroundImage=`url(${colBac.backgroundImage})`;
-        document.getElementById('contact').style.backgroundSize='55%';
+        document.getElementById('contact').style.backgroundSize=colBac.percentOfLarge;
     } 
     if(window.innerWidth<768) {
         document.getElementById('contact').style.backgroundImage=`url(${colBac.smallSizeBackground})`;
-        document.getElementById('contact').style.backgroundSize='95%';
-    }  
-    if(window.innerWidth<400) {
-        document.getElementById('contact').style.backgroundSize='100%';
+        document.getElementById('contact').style.backgroundSize=colBac.percentOfSmall;
     }  
     
+    
     document.getElementById('ask-section').style.color=colBac.color;
-    document.getElementById('title-of-contact').style.color=colBac.color;
+    document.getElementById('title-of-contact').style.color='transparent';
+    document.getElementById('title-of-contact').style.setProperty('--text-stroke-color',colBac.color);
     let placeHolder =document.getElementById('textarea');
     placeHolder.style.setProperty('--placeholder-color', colBac.color);
     
@@ -534,21 +538,24 @@ function aboutMeBtn()  {
     const element = document.getElementById('learn');
     const profileImage = document.getElementById('profile-image');
     let soundOnClick = new Audio('assets/sounds/flash.mp3');
-    if (!document.fullscreenElement ) soundOnClick.play();
+    
+    
   setTimeout(()=>{
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (element.requestFullscreen) {
+            document.getElementById('profile-image').style.filter='saturate(1)';
+            soundOnClick.play();
             
             element.requestFullscreen();
         } else if (element.mozRequestFullScreen) { 
             element.mozRequestFullScreen();
-            
+            soundOnClick.play();
         } else if (element.webkitRequestFullscreen) { 
             element.webkitRequestFullscreen();
-            
+            soundOnClick.play();
         } else if (element.msRequestFullscreen) { 
             element.msRequestFullscreen();
-            
+            soundOnClick.play();
         }
 
         
@@ -556,6 +563,7 @@ function aboutMeBtn()  {
     } else {
         if (document.exitFullscreen ) {
             document.exitFullscreen();
+            document.getElementById('profile-image').style.filter='saturate(0)'; 
         } else if (document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
         } else if (document.webkitExitFullscreen) { 
@@ -714,7 +722,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
      allGaleries.forEach((gallery,index)=>{
             gallery.addEventListener('click',(e)=>{
                 let soundOnClick = new Audio('assets/sounds/flash.mp3');
-                soundOnClick.play();
+               setTimeout(()=>{soundOnClick.play();},200); 
                 document.querySelectorAll('.page .end').forEach(span=>span.style.display='none');
                // console.log(e.target.parentNode.parentNode)//pronadjena .sinle-gallery za swiper
                 setImgIntoSlider(e.target)
