@@ -2,10 +2,11 @@ export const colorsBackgrounds =[
     {
         "id":1,
         "logo":"assets/logo.png",
-        "backgroundUrl":"lightblue",
+        "backgroundUrl":"lightblue", //last priority on navbar background
         "color":"rgba(0,0,0,1)",
-        "colorsOfContactQuestion":"rgb(0,0,0,.125)",
-        "navbarBackgroundImg":"",
+        "colorsOfContactQuestion":"rgb(0,0,0,.125)",//background of contact questions
+        "navbarBackgroundImg":"", //image has priority of background-color on all pages
+        "navbarBackgroundGradient":"",// gradient(linear,conic,radial) has second priority
         
     },
     {
@@ -20,20 +21,21 @@ export const colorsBackgrounds =[
     },
     {
         "id":3,
-        "backgroundColor":"lightgray",
+        "backgroundColor":"lightgrey",
         "color":"rgba(250,250,250,1)",
         "smallScreenColor":"rgba(0,0,0,1)",
-        "profileOutline":"rgba(250,250,250,1)",
+        "profileOutline":"rgba(250,250,250,1)", // frame of profile picture(color)
         "textBackgroundLarge":"assets/backgrounds/large/man-3672010_1920.jpg",
     },
     {
         "id":4,
-        "color":"rgba(0,0,0,1)",
+        "backgroundColor":"lightyellow",
+        "color":"rgba(0,0,0,1)",  //color of contact letters
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",
         "percentOfSmall":"95%",
-        "percentOfLarge":"55%",
-        "backgroundColor":"lightyellow",
+        "percentOfLarge":"55%",// they both need to be center center position
+        
         
 
     },

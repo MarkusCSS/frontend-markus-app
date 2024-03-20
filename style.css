@@ -45,6 +45,7 @@ html,body{
     position: absolute;
     left: -100vw;
     animation: moveNavLoad 3s linear forwards;
+    
 }
 #nav-title{
     

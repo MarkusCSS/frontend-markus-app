@@ -301,7 +301,15 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
     document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundUrl;
-    document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
+    if(colBac.navbarBackgroundImg==''){
+        document.querySelector('.navbar').style.backgroundImage=colBac.navbarBackgroundGradient;
+    } else{
+        document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
+        document.querySelector('.navbar').style.backgroundSize='cover'; 
+        document.querySelector('.navbar').style.backgroundPosition='center center'; 
+    }
+    
+    
     
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
