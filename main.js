@@ -284,16 +284,21 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
 
 function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[1];
-    console.log(colBac.galleriesTransparentBackgroundSmall);
+    //console.log(colBac.galleriesTransparentBackgroundSmall);
        document.getElementById('galleries').style.backgroundImage=`url(${colBac.galleriesTransparentBackgroundSmall})`;
        document.getElementById('galleries').style.backgroundRepeat='no-repeat';
        document.getElementById('galleries').style.backgroundSize=colBac.backgroundImgSize;
     if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition=colBac.backgroundImgPosition;
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
     document.getElementById('slider').style.background=colBac.backgroundUrl;
-   setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor='lightblue';},200) 
-   // document.getElementById('galleries').style.background=colBac.backgroundUrl;
+   
+    setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor='lightblue';},200) 
+    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
+
 }
+
+
+
 var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
@@ -429,7 +434,10 @@ document.querySelectorAll('.nav-item').forEach(item=>{
             case '#galleries':
                 mainSlidePages.style.left=0 + 'vw';
               //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
-          setTimeout(()=>{ document.querySelector('.navbar').style.backgroundColor='transparent';},200)   
+          setTimeout(()=>{  
+            basicColorsAndBackgrounds(colorsBackgrounds);
+            colorsBackgroundsGalleriesPage(colorsBackgrounds);
+        },200)   
             if(window.innerWidth>990) {
                 underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                 break;
@@ -727,9 +735,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
    
     backBtn.addEventListener('click',()=>{
         document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
-        basicColorsAndBackgrounds(colorsBackgrounds); 
-        colorsBackgroundsContactPage(colorsBackgrounds);
-        colorsBackgroundsGalleriesPage(colorsBackgrounds);
+        
        document.querySelector('.wrapper-main-galleries').style.display='block';
        document.querySelector('.switch-to-single-gallery').style.display='none';
        document.querySelector('#gallery-frame').style.width='';
@@ -748,7 +754,8 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
     });
        handleHeightOfPages();
        setUnderscore();
-      
+       basicColorsAndBackgrounds(colorsBackgrounds);
+    colorsBackgroundsGalleriesPage(colorsBackgrounds);
     })
  });
 
