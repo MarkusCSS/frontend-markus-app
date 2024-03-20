@@ -10,7 +10,44 @@ window.onload=()=>{
     reloadDataBases();
     basicColorsAndBackgrounds(colorsBackgrounds);
     colorsBackgroundsGalleriesPage(colorsBackgrounds);
-   
+    document.querySelectorAll('.nav-item').forEach(item=>{
+        item.addEventListener('click',(e)=>{
+            
+        let underscore=document.querySelector('.underscore');
+        let widthOfNavLink=document.querySelector('.nav-link').clientWidth;
+        let navItemPaddingLeft = window.getComputedStyle(document.querySelector('.nav-item')).paddingLeft;
+        let totalNavPadding =parseInt(navItemPaddingLeft);
+            const href = e.target.getAttribute('data-');
+             const mainSlidePages = document.querySelector('.moving-pages');
+            if(href=='#about-me') document.querySelector('.adjust-size-mob').scrollTo(0, 0);
+            if(href=='#contact') document.querySelector('.adjust-size-mob > div').scrollTo(0, 0);
+            
+             switch (href) {
+                case '#galleries':
+                    mainSlidePages.style.left=0 + 'vw';
+                  //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
+              setTimeout(()=>{  
+                basicColorsAndBackgrounds(colorsBackgrounds);
+                colorsBackgroundsGalleriesPage(colorsBackgrounds);
+            },200)   
+                if(window.innerWidth>990) {
+                    underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
+                    break;
+                case '#about-me':
+                    colorsBackgroundsAboutMePage(colorsBackgrounds);
+                    mainSlidePages.style.left='-100vw';
+                    if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
+                    break;
+                case '#contact':
+                    colorsBackgroundsContactPage(colorsBackgrounds)
+                    mainSlidePages.style.left='-200vw';
+                    if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
+                    break;
+              
+            }
+        });
+    });
+    
     const loadingAnimation =document.querySelector('.loadingAnimation');
     setTimeout(()=>{ 
         handleHeightOfPages();
@@ -95,7 +132,9 @@ function reloadDataBases(){
         colorsBackgroundsAboutMePage(colorsBackgrounds);
         colorsBackgroundsContactPage(colorsBackgrounds);
         colorsBackgroundsGalleriesPage(colorsBackgrounds);
-       if( document.getElementById('slider').style.display=='flex') document.getElementById('galleries').style.backgroundImage=``;
+        navbarBackgroundAdjustingOnResize();
+        
+        if( document.getElementById('slider').style.display=='flex') document.getElementById('galleries').style.backgroundImage=``;
         });
 
 
@@ -261,7 +300,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
    
     document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
-   // document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundColor;
+    document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundUrl;
     document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
     
     document.getElementById('galleries').style.color=colBac.color;
@@ -292,8 +331,35 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
     document.getElementById('slider').style.background=colBac.backgroundUrl;
    
-    setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor='lightblue';},200) 
-    // document.getElementById('galleries').style.background=colBac.backgroundUrl;
+    setTimeout(() => {
+        let navItems = document.querySelectorAll('.nav-item');
+        
+        navItems.forEach((navItem,index) => {
+            
+            if (navItem.classList.contains('active')) {
+              console.log(index);
+              if(index==0){
+                let current= colorsBackgrounds[0].backgroundUrl;
+                console.log(current)
+                document.querySelector('.navbar').style.backgroundColor=current;
+                document.querySelector('body').style.backgroundColor=current;
+              }
+              if(index==1){
+                let current= colorsBackgrounds[2].backgroundColor;
+                document.querySelector('.navbar').style.backgroundColor=current;
+                document.querySelector('body').style.backgroundColor=current;
+              }
+              if(index==2){
+                let current= colorsBackgrounds[3].backgroundColor;
+                document.querySelector('.navbar').style.backgroundColor=current;
+                document.querySelector('body').style.backgroundColor=current;
+              }
+            }
+        });
+    
+       
+    }, 200);
+    
 
 }
 
@@ -372,6 +438,9 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
 
 
 
+function navbarBackgroundAdjustingOnResize() {
+    
+}
 
 
 
@@ -417,45 +486,47 @@ function navBtn(){
     
  
 
-       
-document.querySelectorAll('.nav-item').forEach(item=>{
-    item.addEventListener('click',(e)=>{
-        
-    let underscore=document.querySelector('.underscore');
-    let widthOfNavLink=document.querySelector('.nav-link').clientWidth;
-    let navItemPaddingLeft = window.getComputedStyle(document.querySelector('.nav-item')).paddingLeft;
-    let totalNavPadding =parseInt(navItemPaddingLeft);
-        const href = e.target.getAttribute('data-');
-         const mainSlidePages = document.querySelector('.moving-pages');
-        if(href=='#about-me') document.querySelector('.adjust-size-mob').scrollTo(0, 0);
-        if(href=='#contact') document.querySelector('.adjust-size-mob > div').scrollTo(0, 0);
-        
-         switch (href) {
-            case '#galleries':
-                mainSlidePages.style.left=0 + 'vw';
-              //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
-          setTimeout(()=>{  
-            basicColorsAndBackgrounds(colorsBackgrounds);
-            colorsBackgroundsGalleriesPage(colorsBackgrounds);
-        },200)   
-            if(window.innerWidth>990) {
-                underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
-                break;
-            case '#about-me':
-                colorsBackgroundsAboutMePage(colorsBackgrounds);
-                mainSlidePages.style.left='-100vw';
-                if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
-                break;
-            case '#contact':
-                colorsBackgroundsContactPage(colorsBackgrounds)
-                mainSlidePages.style.left='-200vw';
-                if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
-                break;
-          
-        }
+ 
+    document.querySelectorAll('.nav-item').forEach(item=>{
+        item.addEventListener('click',(e)=>{
+            
+        let underscore=document.querySelector('.underscore');
+        let widthOfNavLink=document.querySelector('.nav-link').clientWidth;
+        let navItemPaddingLeft = window.getComputedStyle(document.querySelector('.nav-item')).paddingLeft;
+        let totalNavPadding =parseInt(navItemPaddingLeft);
+            const href = e.target.getAttribute('data-');
+             const mainSlidePages = document.querySelector('.moving-pages');
+            if(href=='#about-me') document.querySelector('.adjust-size-mob').scrollTo(0, 0);
+            if(href=='#contact') document.querySelector('.adjust-size-mob > div').scrollTo(0, 0);
+            
+             switch (href) {
+                case '#galleries':
+                    mainSlidePages.style.left=0 + 'vw';
+                  //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
+              setTimeout(()=>{  
+                basicColorsAndBackgrounds(colorsBackgrounds);
+                colorsBackgroundsGalleriesPage(colorsBackgrounds);
+            },200)   
+                if(window.innerWidth>990) {
+                    underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
+                    break;
+                case '#about-me':
+                    colorsBackgroundsAboutMePage(colorsBackgrounds);
+                    mainSlidePages.style.left='-100vw';
+                    if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
+                    break;
+                case '#contact':
+                    colorsBackgroundsContactPage(colorsBackgrounds)
+                    mainSlidePages.style.left='-200vw';
+                    if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
+                    break;
+              
+            }
+        });
     });
-});
-}
+    }
+       
+
 
 
 function handleHeightOfPages(){

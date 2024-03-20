@@ -6,7 +6,7 @@ export const colorsBackgrounds =[
         "color":"rgba(0,0,0,1)",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",
         "navbarBackgroundImg":"",
-        "navbarBackgroundColor":"red"
+        
     },
     {
         "id":2,

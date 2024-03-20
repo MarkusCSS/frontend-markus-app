@@ -675,7 +675,7 @@ html,body{
    
    
     
-    -webkit-box-reflect: below 5px linear-gradient(transparent,transparent,rgba(145, 12, 12, 0.4));
+  /*  -webkit-box-reflect: below 5px linear-gradient(transparent,transparent,rgba(145, 12, 12, 0.4)); */
     transform-origin: center center;
     transition: transform 0.3s ease;
 }
