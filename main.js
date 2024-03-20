@@ -294,7 +294,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
      document.getElementById('entrance-logo').src=colBac.logo;
     document.querySelector('.navbar ').style.color=colBac.color;
     document.querySelectorAll('.navbar a').forEach(link => {
-        link.style.color = `${colBac.color}`; // Postavljamo boju linkova
+        link.style.color = `${colBac.color}`;
     });
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
    
@@ -677,7 +677,7 @@ function aboutMeBtn()  {
     } else {
         if (document.exitFullscreen ) {
             document.exitFullscreen();
-            document.getElementById('profile-image').style.filter='saturate(0)'; 
+            document.getElementById('profile-image').style.filter=''; 
         } else if (document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
         } else if (document.webkitExitFullscreen) { 
@@ -699,6 +699,7 @@ document.addEventListener('fullscreenchange', () => {
     const profileImage = document.getElementById('profile-image');
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         profileImage.style.maxWidth = '100%';
+        profileImage.style.filter='';
     }
 });
 
