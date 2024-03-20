@@ -266,6 +266,11 @@ html,body{
 }
 #profile-image{
     filter: saturate(0);
+    transition: 3s;
+}
+#profile-image:hover{
+    filter: saturate(1);
+    transition: 3s;
 }
 @media screen and (max-width:992px) {
     #profile-image{
