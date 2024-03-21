@@ -377,7 +377,7 @@ var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
     document.getElementById('about-me').style.background=colBac.backgroundColor;
-    
+    document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
     if(colBac.backgroundColor!='transparent') {
         document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
         if(colorFirstCounter==1){
@@ -415,6 +415,7 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
    // console.log('test',colBac)
     
     document.getElementById('contact').style.background=colBac.backgroundColor;
+    document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
     if(colBac.backgroundColor!='transparent'){
         document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
         if(colorSecondCounter==1){
