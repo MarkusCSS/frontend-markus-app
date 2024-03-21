@@ -274,6 +274,7 @@ html,body{
     transition: 3s;
 }
 @media screen and (max-width:992px) {
+    #gallery-frame::-webkit-scrollbar {width: 0px; }
     #profile-image{
         filter: saturate(1);
     }
