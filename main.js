@@ -39,7 +39,8 @@ window.onload=()=>{
                     if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
                     break;
                 case '#contact':
-                    colorsBackgroundsContactPage(colorsBackgrounds)
+                    colorsBackgroundsContactPage(colorsBackgrounds);
+                    
                     mainSlidePages.style.left='-200vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
                     break;
@@ -217,7 +218,7 @@ function generateAboutMePage(){
         let accordionHTML = `
             <section class="drop-down-info" id="questions${accordion.id}1">
                 <div class="container-fluid container-lg">
-                    <h2 class="text-center mb-4">${accordion.titleOfAccordion}</h2>
+                    <h2 class="title-of-accordion text-center mb-4">${accordion.titleOfAccordion}</h2>
                     <div class="accordion" id="questions${accordion.id}">
         `;
         
@@ -376,35 +377,42 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
+
+
+
     document.getElementById('about-me').style.background=colBac.backgroundColor;
-    document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+   // document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
     if(colBac.backgroundColor!='transparent') {
         document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
+        document.querySelectorAll('.page .end ')[1].style.color=colBac.colorSpan;
+        document.getElementById('text-about-me').style.color=colBac.textColor;
+        document.getElementById('title-of-page').style.color=colBac.textColorTitle;
+        document.getElementById('about-me-btn').style.color=colBac.textColorBtn;
+        
+        document.querySelectorAll('.title-of-accordion').forEach(title=>title.style.color=colorsBackgrounds[2].accordionTitleColor);
+    
         if(colorFirstCounter==1){
             document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;
             colorFirstCounter++;
         }else{
             setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
         }
-        
-    } 
+    }   
+    
      
    if(window.innerWidth>=992) {
     
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
-    document.getElementById('text-about-me').style.color=colBac.color;
+    
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
    
-    document.getElementById('about-me-btn').style.color=colBac.color;
+    
     document.getElementById('about-me-btn').style.display='block';
 } 
 if (window.innerWidth<992) {
     
     document.getElementById('learn').style.backgroundImage=``;
-    document.getElementById('text-about-me').style.color=colBac.smallScreenColor;
     document.getElementById('profile-image').style.outline=`10px solid transparent`;
-    
-    document.getElementById('about-me-btn').style.color=colBac.smallScreenColor;
     document.getElementById('about-me-btn').style.display='none';
    }
     
@@ -413,16 +421,18 @@ var colorSecondCounter=1;
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
    // console.log('test',colBac)
-    
+ 
     document.getElementById('contact').style.background=colBac.backgroundColor;
-    document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+   // document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
     if(colBac.backgroundColor!='transparent'){
         document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
+        document.querySelectorAll('.page .end')[2].style.color=colBac.mainColorLetters;
         if(colorSecondCounter==1){
             document.querySelector('.navbar').style.backgroundColor='lightblue';
             colorSecondCounter++;
         } else{
             setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
+            
         }
        
     } 

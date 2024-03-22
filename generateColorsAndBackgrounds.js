@@ -22,14 +22,18 @@ export const colorsBackgrounds =[
     {
         "id":3,
         "backgroundColor":"lightgrey",
-        "color":"rgba(250,250,250,1)",
-        "smallScreenColor":"rgba(0,0,0,1)",
+        "colorSpan":"rgba(0,0,250,1)",// span page end color
+        "textColor":"rgba(250,250,250,1)",//learn section text-color
+        "textColorTitle":"black",//learn section text-color Title
+        "textColorBtn":"blue",//learn section text-color Title
         "profileOutline":"rgba(250,250,250,1)", // frame of profile picture(color)
         "textBackgroundLarge":"assets/backgrounds/large/man-3672010_1920.jpg",
+        "accordionTitleColor":"black",
     },
     {
         "id":4,
         "backgroundColor":"lightyellow",
+        "mainColorLetters":"rgba(250,250,250,1)",
         "color":"rgba(0,0,0,1)",  //color of contact letters
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",
