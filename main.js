@@ -381,8 +381,9 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
 
 
     document.getElementById('about-me').style.background=colBac.backgroundColor;
-   // document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+   
     if(colBac.backgroundColor!='transparent') {
+         document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end ')[1].style.color=colBac.colorSpan;
         document.getElementById('text-about-me').style.color=colBac.textColor;
@@ -423,8 +424,9 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
    // console.log('test',colBac)
  
     document.getElementById('contact').style.background=colBac.backgroundColor;
-   // document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+  
     if(colBac.backgroundColor!='transparent'){
+          document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end')[2].style.color=colBac.mainColorLetters;
         if(colorSecondCounter==1){
