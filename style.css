@@ -203,7 +203,7 @@ html,body{
     margin-top: 50px;
     margin-left: 20px;
     transition: 1s;
-    border: none !important;
+    
     background-color: transparent !important;
 }
 @media screen and (min-width: 992px) and (max-width: 1245px) {
@@ -308,6 +308,11 @@ html,body{
 }
 #learn{
     background-repeat: no-repeat;
+    
+}
+
+.frame-about-me-color{
+    border: 3px solid white;
 }
 
 .drop-down-info{

@@ -301,7 +301,8 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.nav-item').forEach(item => {
         item.style.color = `${colBac.color}`;
     });
-    
+    console.log(colBac.backgroundUrl,colBac.bodyBackground)
+   document.querySelectorAll('#gallery-frame .card').forEach(frame=>frame.style.border=`3px solid ${colBac.cardFrameColor}`)
     document.getElementById('nav-title').style.color=colBac.color;
     document.querySelector('.underscore').style.color=colBac.color;
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
@@ -334,6 +335,12 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.nav-item').forEach(item=>{
         item.style.borderColor=colBac.color;
     });
+    if(colBac.backgroundUrl=='transparent') {
+        document.querySelector('body').style.backgroundImage=`url(${colBac.bodyBackground})`;
+        document.querySelectorAll('.page .end').forEach(span => {
+            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+        });
+    } 
 }
 
 
@@ -402,12 +409,12 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
 var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
-
+   let bodyBackground= document.querySelector('body').style.backgroundImage;
 
 
     document.getElementById('about-me').style.background=colBac.backgroundColor;
    
-    if(colBac.backgroundColor!='transparent') {
+    if(colBac.backgroundColor!='transparent' || bodyBackground!=''  ) {
          document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
        setTimeout(()=>{
         document.querySelectorAll('.navbar a').forEach(link => {
@@ -435,6 +442,9 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
             setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
           
         }
+        document.querySelectorAll('.page .end').forEach(span => {
+            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+        });
     }   
     
      
@@ -454,11 +464,12 @@ if (window.innerWidth<992) {
 var colorSecondCounter=1;
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
+    let bodyBackground= document.querySelector('body').style.backgroundImage;
    // console.log('test',colBac)
  
     document.getElementById('contact').style.background=colBac.backgroundColor;
   
-    if(colBac.backgroundColor!='transparent'){
+    if(colBac.backgroundColor!='transparent' || bodyBackground !=''){
           document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
           setTimeout(()=>{
             document.querySelectorAll('.navbar a').forEach(link => {
@@ -479,6 +490,9 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
             setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
             
         }
+        document.querySelectorAll('.page .end').forEach(span => {
+            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+        });
        
     } 
     if(window.innerWidth>=768) {

@@ -2,8 +2,10 @@ export const colorsBackgrounds =[
     {
         "id":1,
         "logo":"assets/logo.png",
-        "backgroundUrl":"lightblue", //last priority on navbar background
+        "backgroundUrl":"transparent", //last priority on navbar background
+        "bodyBackground":"assets/Markus-images/DSC04062-Enhanced-NR.jpg",
         "color":"rgba(0,0,0,1)",
+        "cardFrameColor":"white",
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",//background of contact questions
         "navbarBackgroundImg":"", //image has priority of background-color on all pages   test:  assets/Markus-images/DSC04062-Enhanced-NR.jpg
         "navbarBackgroundGradient":"",// gradient(linear,conic,radial) has second priority test: conic-gradient(red,blue,green,yellow)
@@ -22,20 +24,20 @@ export const colorsBackgrounds =[
     {
         "id":3,
         "backgroundColor":"lightgrey",// this styles won't be used when is TRANSPARENT
-        "navbarTextColor":"orange",
-        "colorSpan":"rgba(0,0,250,1)",// span page end color
+        "navbarTextColor":"black",
+        "colorSpan":"rgba(0,0,0,1)",// span page end color
         "textColor":"rgba(250,250,250,1)",//learn section text-color
         "textColorTitle":"black",//learn section text-color Title
-        "textColorBtn":"blue",//learn section text-color Title
+        "textColorBtn":"white",//learn section text-color Title
         "profileOutline":"rgba(250,250,250,1)", // frame of profile picture(color)
         "textBackgroundLarge":"assets/backgrounds/large/man-3672010_1920.jpg",
         "accordionTitleColor":"black",
     },
     {
         "id":4,
-        "backgroundColor":"lightyellow",// this styles won't be used when is TRANSPARENT
+        "backgroundColor":"transparent",// this styles won't be used when is TRANSPARENT
         "navbarTextColor":"green",
-        "mainColorLetters":"rgba(0,250,250,1)",
+        "mainColorLetters":"rgba(0,0,0,1)",
         "color":"rgba(0,0,0,1)",  //color of contact letters
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",
