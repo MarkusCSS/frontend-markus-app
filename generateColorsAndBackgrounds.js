@@ -21,7 +21,8 @@ export const colorsBackgrounds =[
     },
     {
         "id":3,
-        "backgroundColor":"lightgrey",
+        "backgroundColor":"lightgrey",// this styles won't be used when is TRANSPARENT
+        "navbarTextColor":"orange",
         "colorSpan":"rgba(0,0,250,1)",// span page end color
         "textColor":"rgba(250,250,250,1)",//learn section text-color
         "textColorTitle":"black",//learn section text-color Title
@@ -32,16 +33,14 @@ export const colorsBackgrounds =[
     },
     {
         "id":4,
-        "backgroundColor":"lightyellow",
-        "mainColorLetters":"rgba(250,250,250,1)",
+        "backgroundColor":"lightyellow",// this styles won't be used when is TRANSPARENT
+        "navbarTextColor":"green",
+        "mainColorLetters":"rgba(0,250,250,1)",
         "color":"rgba(0,0,0,1)",  //color of contact letters
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",
         "percentOfSmall":"95%",
         "percentOfLarge":"55%",// they both need to be center center position
-        
-        
-
     },
     
 ];

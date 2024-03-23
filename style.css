@@ -73,7 +73,7 @@ html,body{
     padding: 0;
 }
 .nav-item{
-    border-right: 1px solid ;
+    border-right: 1px solid ;  
     padding: 0 3px;
     transition: 1.5s color ease ;
     opacity: 0;
@@ -88,11 +88,11 @@ html,body{
     100%{opacity: 1;}
 }
 .nav-item.active{
-    color: #000000;
+  
     font-weight: bolder;
 }
 .nav-item:last-child{
-    border-right: none;
+    border-right: none !important;
 }
 .underscore{
     position: relative;

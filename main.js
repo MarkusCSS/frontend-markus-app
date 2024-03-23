@@ -130,10 +130,13 @@ function reloadDataBases(){
         navBtn();
         setUnderscore();
         backToContain();
-        colorsBackgroundsAboutMePage(colorsBackgrounds);
-        colorsBackgroundsContactPage(colorsBackgrounds);
+        
+            colorsBackgroundsAboutMePage(colorsBackgrounds);
+            colorsBackgroundsContactPage(colorsBackgrounds);
+        
+        
         colorsBackgroundsGalleriesPage(colorsBackgrounds);
-        navbarBackgroundAdjustingOnResize();
+        
         
         if( document.getElementById('slider').style.display=='flex') document.getElementById('galleries').style.backgroundImage=``;
         });
@@ -297,8 +300,13 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.navbar a').forEach(link => {
         link.style.color = `${colBac.color}`;
     });
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.style.color = `${colBac.color}`;
+    });
+    
+    document.getElementById('nav-title').style.color=colBac.color;
+    document.querySelector('.underscore').style.color=colBac.color;
     document.querySelectorAll('.page .end').forEach(span=>span.style.backgroundColor=colBac.backgroundUrl);
-   
     document.querySelectorAll('.page .end').forEach(span=>span.style.color=colBac.color);
     document.querySelector('.navbar').style.background=colBac.backgroundUrl;
     document.querySelector('.navbar').style.backgroundColor=colBac.navbarBackgroundUrl;
@@ -307,6 +315,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     } else{
         document.querySelector('.navbar').style.backgroundImage=`url(${colBac.navbarBackgroundImg})`;
         document.querySelector('.navbar').style.backgroundSize='cover'; 
+       // document.querySelector('.navbar').style.backgroundRepeat='no-repeat'; 
         document.querySelector('.navbar').style.backgroundPosition='center center'; 
     }
     
@@ -352,11 +361,29 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
                 console.log(current)
                 document.querySelector('.navbar').style.backgroundColor=current;
                 document.querySelector('body').style.backgroundColor=current;
+                document.querySelectorAll('.navbar a').forEach(link => {
+                    link.style.color = `${colorsBackgrounds[0].color}`;
+                });
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.style.borderRight = `1px solid ${colorsBackgrounds[0].color}`;
+                });
+                
+                document.getElementById('nav-title').style.color=colorsBackgrounds[0].color;
+                document.querySelector('.underscore').style.color=colorsBackgrounds[0].color;
               }
               if(index==1){
                 let current= colorsBackgrounds[2].backgroundColor;
                 document.querySelector('.navbar').style.backgroundColor=current;
                 document.querySelector('body').style.backgroundColor=current;
+                document.querySelectorAll('.navbar a').forEach(link => {
+                    link.style.color = `${colorsBackgrounds[2].navbarTextColor}`;
+                });
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.style.borderRight = `1px solid ${colorsBackgrounds[2].navbarTextColor}`;
+                });
+                
+                document.getElementById('nav-title').style.color=colorsBackgrounds[2].navbarTextColor;
+                document.querySelector('.underscore').style.color=colorsBackgrounds[2].navbarTextColor;
               }
               if(index==2){
                 let current= colorsBackgrounds[3].backgroundColor;
@@ -384,6 +411,17 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
    
     if(colBac.backgroundColor!='transparent') {
          document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+       setTimeout(()=>{
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.style.color = `${colBac.navbarTextColor}`;
+        });
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.style.borderRight =`1px solid ${colBac.navbarTextColor}` ;
+        });
+        document.getElementById('nav-title').style.color=colBac.navbarTextColor;
+        document.querySelector('.underscore').style.color=colBac.navbarTextColor;
+       },200);
+        
         document.querySelectorAll('.page .end')[1].style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end ')[1].style.color=colBac.colorSpan;
         document.getElementById('text-about-me').style.color=colBac.textColor;
@@ -397,17 +435,14 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
             colorFirstCounter++;
         }else{
             setTimeout(()=>{document.querySelector('.navbar').style.backgroundColor=colBac.backgroundColor;},200); 
+          
         }
     }   
     
      
    if(window.innerWidth>=992) {
-    
     document.getElementById('learn').style.backgroundImage=`url(${colBac.textBackgroundLarge})`;
-    
     document.getElementById('profile-image').style.outline=`10px solid ${colBac.profileOutline}`;
-   
-    
     document.getElementById('about-me-btn').style.display='block';
 } 
 if (window.innerWidth<992) {
@@ -427,6 +462,16 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
   
     if(colBac.backgroundColor!='transparent'){
           document.querySelector('body').style.backgroundColor=colBac.backgroundColor;
+          setTimeout(()=>{
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.style.color = `${colBac.navbarTextColor}`;
+            });
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.style.borderRight =`1px solid ${colBac.navbarTextColor}` ;
+            });
+            document.getElementById('nav-title').style.color=colBac.navbarTextColor;
+            document.querySelector('.underscore').style.color=colBac.navbarTextColor;
+           },200);
         document.querySelectorAll('.page .end')[2].style.backgroundColor=colBac.backgroundColor;
         document.querySelectorAll('.page .end')[2].style.color=colBac.mainColorLetters;
         if(colorSecondCounter==1){
@@ -459,9 +504,7 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
 
 
 
-function navbarBackgroundAdjustingOnResize() {
-    
-}
+
 
 
 
@@ -527,17 +570,20 @@ function navBtn(){
               setTimeout(()=>{  
                 basicColorsAndBackgrounds(colorsBackgrounds);
                 colorsBackgroundsGalleriesPage(colorsBackgrounds);
+                handleHeightOfPages();
             },200)   
                 if(window.innerWidth>990) {
                     underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                     break;
                 case '#about-me':
                     colorsBackgroundsAboutMePage(colorsBackgrounds);
+                    handleHeightOfPages();
                     mainSlidePages.style.left='-100vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
                     break;
                 case '#contact':
-                    colorsBackgroundsContactPage(colorsBackgrounds)
+                    colorsBackgroundsContactPage(colorsBackgrounds);
+                    handleHeightOfPages();
                     mainSlidePages.style.left='-200vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
                     break;
