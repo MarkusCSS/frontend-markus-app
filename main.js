@@ -338,7 +338,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     if(colBac.backgroundUrl=='transparent') {
         document.querySelector('body').style.backgroundImage=`url(${colBac.bodyBackground})`;
         document.querySelectorAll('.page .end').forEach(span => {
-            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+            span.style.backgroundColor = colBac.backgroundSpan;
         });
     } 
 }
@@ -410,8 +410,6 @@ var colorFirstCounter=1;
 function colorsBackgroundsAboutMePage(colorsBackgrounds){
     let colBac=colorsBackgrounds[2];
    let bodyBackground= document.querySelector('body').style.backgroundImage;
-
-
     document.getElementById('about-me').style.background=colBac.backgroundColor;
    
     if(colBac.backgroundColor!='transparent' || bodyBackground!=''  ) {
@@ -443,7 +441,7 @@ function colorsBackgroundsAboutMePage(colorsBackgrounds){
           
         }
         document.querySelectorAll('.page .end').forEach(span => {
-            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+            span.style.backgroundColor = colorsBackgrounds[0].backgroundSpan;
         });
     }   
     
@@ -491,7 +489,7 @@ function colorsBackgroundsContactPage(colorsBackgrounds){
             
         }
         document.querySelectorAll('.page .end').forEach(span => {
-            span.style.backgroundColor = 'rgba(250,250,250,0.234)';
+            span.style.backgroundColor = colorsBackgrounds[0].backgroundSpan;
         });
        
     } 
