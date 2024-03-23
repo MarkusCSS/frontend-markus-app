@@ -29,7 +29,7 @@ window.onload=()=>{
               setTimeout(()=>{  
                 basicColorsAndBackgrounds(colorsBackgrounds);
                 colorsBackgroundsGalleriesPage(colorsBackgrounds);
-            },200)   
+            },200);
                 if(window.innerWidth>990) {
                     underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                     break;
@@ -50,9 +50,7 @@ window.onload=()=>{
     });
     
     const loadingAnimation =document.querySelector('.loadingAnimation');
-    setTimeout(()=>{ 
-        handleHeightOfPages();
-    },3000)
+   
     
     navBtn();
   
@@ -124,7 +122,7 @@ function reloadDataBases(){
      window.addEventListener('resize',()=>{
         
         exitFullscreenAboutMePageOnResize()
-        handleHeightOfPages();
+        
         underscorePosition();
         adjustBtstrpCss();
         navBtn();
@@ -542,11 +540,23 @@ function navBtn(){
             if (window.innerWidth<992){  
                 setTimeout(()=>{
                     navbarToggler.click();
+                   
                 },600);
-            
+                
+                
+                
             }
         });
     });  
+
+    
+
+setInterval(() => {
+   handleHeightOfPages();
+}, 50);
+
+
+
     
  
 
@@ -566,24 +576,20 @@ function navBtn(){
              switch (href) {
                 case '#galleries':
                     mainSlidePages.style.left=0 + 'vw';
-                  //  document.querySelectorAll('.page .end')[0].style.backgroundColor='transparent';
               setTimeout(()=>{  
                 basicColorsAndBackgrounds(colorsBackgrounds);
                 colorsBackgroundsGalleriesPage(colorsBackgrounds);
-                handleHeightOfPages();
             },200)   
                 if(window.innerWidth>990) {
                     underscore.style.left=`${0 -  3 * widthOfNavLink -3 * totalNavPadding }px`; } 
                     break;
                 case '#about-me':
                     colorsBackgroundsAboutMePage(colorsBackgrounds);
-                    handleHeightOfPages();
                     mainSlidePages.style.left='-100vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
                     break;
                 case '#contact':
                     colorsBackgroundsContactPage(colorsBackgrounds);
-                    handleHeightOfPages();
                     mainSlidePages.style.left='-200vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
                     break;
@@ -885,13 +891,13 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
        document.querySelector('nav').style.display='block';
        document.getElementById('slider-off-btn').style.display='none';
        document.getElementById('slider').style.display='none';
-    
+      
        document.querySelectorAll('.card img').forEach(img=>{
         img.classList.remove('.animate-out-left');
         img.classList.add('animate-in-left');
         img.parentNode.style.opacity='1';
     });
-       handleHeightOfPages();
+      handleHeightOfPages();
        setUnderscore();
        basicColorsAndBackgrounds(colorsBackgrounds);
     colorsBackgroundsGalleriesPage(colorsBackgrounds);
