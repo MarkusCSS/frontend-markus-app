@@ -36,11 +36,23 @@ window.onload=()=>{
                 case '#about-me':
                     colorsBackgroundsAboutMePage(colorsBackgrounds);
                     mainSlidePages.style.left='-100vw';
+                    setTimeout(()=>{
+                        if(colorsBackgrounds[2].bodyBackgroundImg !=''){
+                            document.querySelector('body').style.backgroundImage=`url(${colorsBackgrounds[2].bodyBackgroundImg})`;
+                        }
+                    },200);
+                    
                     if(window.innerWidth>990)   underscore.style.left=`${0 -  2 * widthOfNavLink - 3.5* totalNavPadding  }px`;
                     break;
                 case '#contact':
                     colorsBackgroundsContactPage(colorsBackgrounds);
-                    
+                    setTimeout(()=>{
+                        if(colorsBackgrounds[3].bodyBackgroundImg !=''){
+                            document.querySelector('body').style.backgroundImage=`url(${colorsBackgrounds[3].bodyBackgroundImg})`;
+                           
+                        }
+                    },200);
+                   
                     mainSlidePages.style.left='-200vw';
                     if(window.innerWidth>990)   underscore.style.left=`${0 -   widthOfNavLink +  totalNavPadding}px`;
                     break;
@@ -301,7 +313,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     document.querySelectorAll('.nav-item').forEach(item => {
         item.style.color = `${colBac.color}`;
     });
-    console.log(colBac.backgroundUrl,colBac.bodyBackground)
+    
    document.querySelectorAll('#gallery-frame .card').forEach(frame=>frame.style.border=`3px solid ${colBac.cardFrameColor}`)
     document.getElementById('nav-title').style.color=colBac.color;
     document.querySelector('.underscore').style.color=colBac.color;
@@ -322,6 +334,7 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
     
     document.getElementById('galleries').style.color=colBac.color;
     document.querySelector('body').style.background=colBac.backgroundUrl;
+    
     document.getElementById('galleries').style.background=colBac.backgroundUrl;
     document.getElementById('about-me').style.background=colBac.backgroundUrl;
     document.getElementById('contact').style.background=colBac.backgroundUrl;
@@ -336,7 +349,9 @@ function basicColorsAndBackgrounds(colorsBackgrounds){
         item.style.borderColor=colBac.color;
     });
     if(colBac.backgroundUrl=='transparent') {
-        document.querySelector('body').style.backgroundImage=`url(${colBac.bodyBackground})`;
+        document.querySelector('body').style.backgroundImage=`url(${colBac.bodyBackgroundImg})`;
+       
+        
         document.querySelectorAll('.page .end').forEach(span => {
             span.style.backgroundColor = colBac.backgroundSpan;
         });
@@ -353,6 +368,7 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
     if(window.innerWidth>992)   document.getElementById('galleries').style.backgroundPosition=colBac.backgroundImgPosition;
     if(window.innerWidth<=992 || document.querySelector('.switch-to-single-gallery').style.display=='block')   document.getElementById('galleries').style.backgroundImage=``;
     document.getElementById('slider').style.background=colBac.backgroundUrl;
+    document.querySelectorAll('.card').forEach(card=>card.style.color=colBac.color);
    
     setTimeout(() => {
         let navItems = document.querySelectorAll('.nav-item');
