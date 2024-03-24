@@ -376,10 +376,10 @@ function colorsBackgroundsGalleriesPage(colorsBackgrounds){
         navItems.forEach((navItem,index) => {
             
             if (navItem.classList.contains('active')) {
-              console.log(index);
+              
               if(index==0){
                 let current= colorsBackgrounds[0].backgroundUrl;
-                console.log(current)
+               
                 document.querySelector('.navbar').style.backgroundColor=current;
                 document.querySelector('body').style.backgroundColor=current;
                 document.querySelectorAll('.navbar a').forEach(link => {
@@ -479,7 +479,7 @@ var colorSecondCounter=1;
 function colorsBackgroundsContactPage(colorsBackgrounds){
     let colBac=colorsBackgrounds[3];
     let bodyBackground= document.querySelector('body').style.backgroundImage;
-   // console.log('test',colBac)
+  
  
     document.getElementById('contact').style.background=colBac.backgroundColor;
   
@@ -634,7 +634,6 @@ function handleHeightOfPages(){
     
     let pages= document.querySelectorAll('.page');
     let navHeight= document.querySelector('.navbar').clientHeight;
-   // console.log(pages,navHeight);
     pages.forEach(page=>{
         page.style.height=`calc(100vh - ${navHeight}px)`;
         page.style.marginTop=`${navHeight}px`;
@@ -668,7 +667,6 @@ galleries.addEventListener('wheel', function(event) {
         galleryFrame.scrollTop -= Math.min(currentScrollTop, Math.abs(deltaY));
         event.preventDefault();
         paramDirection=true; 
-        console.log('Scroll up',paramDirection);
         
     }
     
@@ -676,7 +674,6 @@ galleries.addEventListener('wheel', function(event) {
         galleryFrame.scrollTop += Math.min(maxScrollTop - currentScrollTop, deltaY);
         event.preventDefault(); 
         paramDirection=false;
-       console.log('Scroll down',paramDirection);
        
     }
    scrollAnimationCard(paramDirection);
@@ -689,7 +686,7 @@ function scrollAnimationCard(paramDirection) {
     let wrapper= document.querySelector('.wrapper-main-galleries');
     if (window.innerWidth >= 992  && getComputedStyle(wrapper).display=='block') {
        
-        console.log(typeof getComputedStyle(wrapper).display);
+      //  console.log(typeof getComputedStyle(wrapper).display);
         let cardsImgs = document.querySelectorAll('.card img');
         let imageGroups = [];
         let group = [];
@@ -850,16 +847,16 @@ function setUnderscore(){
   let navItemPaddingLeft = window.getComputedStyle(document.querySelector('.nav-item')).paddingLeft;
     let totalNavPadding =parseInt(navItemPaddingLeft);
   if(data=='#galleries') {
-  //  console.log('Galleries')
+  
     underscore.style.left=`${0 -  3 * widthOfNavLink -3* totalNavPadding }px`;
 }
   if(data=='#about-me') {
-  // console.log('aboutMe')
+ 
     underscore.style.left=`${0 -  2 * widthOfNavLink -3.5 * totalNavPadding }px`;
 }
   if(data=='#contact') {
    
-  //  console.log('contact')
+  
     underscore.style.left=`${0 -   widthOfNavLink + totalNavPadding }px`;
 }
 }
@@ -884,7 +881,7 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
     let backBtn = document.getElementById('back-from-single-to-galleries');
     
     card.addEventListener('click',(e)=>{
-       console.log(index);
+      
       
         
        document.getElementById('galleries').style.backgroundImage='';
@@ -943,7 +940,6 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
                 setImgIntoSlider(e.target)
                 document.getElementById('slider-off-btn').style.display='block';
                let switchSliderColor = document.getElementById('slider').style.background;
-               console.log(switchSliderColor);
                document.getElementById('galleries').style.backgroundColor=switchSliderColor; // Add variable equal with gallery 
               
                 document.getElementById('slider').style.display='flex';
@@ -957,7 +953,6 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
                 // Provera da li je kliknuto dugme
                 
                 if (window.innerWidth <= 900) {
-                    console.log('radi na prvu')
                     let swiperSlides = document.querySelectorAll('.swiper-slide');
                     
                     // Iteracija kroz sve swiper-slide elemente
@@ -979,17 +974,14 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
             document.getElementById('slider-off-btn').addEventListener('click',()=>{
                 basicColorsAndBackgrounds(colorsBackgrounds);
                 document.querySelectorAll('.page .end').forEach(span=>span.style.display='block');
-              //  colorsBackgroundsGalleriesPage(colorsBackgrounds);  
              document.getElementById('slider-off-btn').style.display='none';
              document.getElementById('slider').style.display='none';
              document.querySelector('.switch-to-single-gallery').style.display='block';
              document.querySelector('#gallery-frame').style.width='100%';
                 document.querySelector('#gallery-frame').style.marginLeft='0px';
                 let colorSwitchSlider =document.getElementById('galleries').style.background;
-                console.log(colorSwitchSlider)
                 document.querySelector('.switch-to-single-gallery').style.backgroundColor=colorSwitchSlider;
-              //  document.getElementById('galleries').style.color='';
-              //  document.querySelector('#galleries span').style.color='';
+              
                 
             });
           }
@@ -1000,7 +992,6 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
         // Provera da li je kliknuto dugme
         
         if (window.innerWidth <= 900) {
-            console.log('radi na prvu')
             let swiperSlides = document.querySelectorAll('.swiper-slide');
             
             // Iteracija kroz sve swiper-slide elemente
@@ -1075,10 +1066,10 @@ document.querySelectorAll('.card.bg-light').forEach((card,index)=>{
         
         let swiperWrapper = document.querySelector('.swiper-wrapper');
         swiperWrapper.innerHTML = '';
-        console.log(img);
+        
         let imgUrlCurrent = getComputedStyle(img).getPropertyValue('background-image');
         let current = imgUrlCurrent.slice(4, -1).replace(/"/g, "");
-        console.log(current);
+        
     
         let siblingUrls = [];
         img.parentNode.parentNode.querySelectorAll('.under-grid-div').forEach(backgroundImg => {
