@@ -7,6 +7,12 @@ import { colorsBackgrounds } from './generateColorsAndBackgrounds.js';
 
 
 window.onload=()=>{       
+    function animate () {
+        handleHeightOfPages();
+        requestAnimationFrame(animate);
+     }
+     
+     requestAnimationFrame(animate);
     reloadDataBases();
     basicColorsAndBackgrounds(colorsBackgrounds);
     colorsBackgroundsGalleriesPage(colorsBackgrounds);
@@ -578,10 +584,6 @@ function navBtn(){
     });  
 
     
-
-setInterval(() => {
-   handleHeightOfPages();
-}, 1);
 
 
 

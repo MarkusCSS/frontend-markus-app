@@ -2,7 +2,7 @@ export const colorsBackgrounds =[
     {
         "id":1,
         "logo":"assets/logo.png",
-        "backgroundUrl":"transparent", //last priority on navbar background
+        "backgroundUrl":"red", //last priority on navbar background
         "bodyBackgroundImg":"assets/backgrounds/large/body.large.background.png",
         "color":"rgba(0,0,0,1)",
         "cardFrameColor":"white",
