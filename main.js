@@ -581,7 +581,7 @@ function navBtn(){
 
 setInterval(() => {
    handleHeightOfPages();
-}, 50);
+}, 1);
 
 
 
