@@ -168,12 +168,10 @@ body{
 
 
 #galleries{
-    
     position: relative;
     display: flex;
     justify-content:left;
     align-items: start;
-   
 }
 #gallery-frame{
     margin-top: 30px;
@@ -187,13 +185,9 @@ body{
     animation: opacityGallFrame 3s linear  forwards;
     position: relative;
 }
-
 .wrapper-main-galleries{
     display: block;
 }
-
-
-
 @keyframes opacityGallFrame{
     0%{opacity: 0;height: 0;}
     30%{opacity: .5;height: 80%;}
@@ -209,7 +203,6 @@ body{
     margin-top: 50px;
     margin-left: 20px;
     transition: 1s;
-    
     background-color: transparent !important;
 }
 @media screen and (min-width: 992px) and (max-width: 1245px) {
@@ -238,27 +231,21 @@ body{
     font-size: 1.1rem;
     font-style: italic;
     font-weight: normal;
-   
 }
 #gallery-frame .card:hover .title-of-single-gallery{
-   
     font-weight: bolder;
 }
-
-
 #gallery-frame .card img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: .7s;
 }
-
 #about-me{
     background-color: rgb(255, 255, 255);
     display: grid;
     position: relative;
 }
-
 #about-me-btn{
     position: absolute;
     left: 75%;
@@ -285,7 +272,6 @@ body{
         filter: saturate(1);
     }
 }
-
 .adjust-size-mob{
     position: absolute;
     top: 0;
@@ -307,20 +293,16 @@ body{
 #about-me-btn{
     border:none;
     font-weight: bold;
-    
 }
 .testing{
     color: lightgoldenrodyellow;
 }
 #learn{
     background-repeat: no-repeat;
-    
 }
-
 .frame-about-me-color{
     border: 3px solid white;
 }
-
 .drop-down-info{
     margin-bottom: 50px;
     margin-top: 50px;
@@ -330,9 +312,7 @@ body{
    background-position: center center !important;
    background-repeat: no-repeat !important;
     position: relative;
-    
 }
-
 #title-of-contact{
     -webkit-text-stroke: var(--text-stroke-color) 2px;
 }
@@ -340,16 +320,11 @@ body{
 @media  screen and(max-width:767) {
     #contact{
         background-position: center center !important;
-      
-        
      }
 }
    .list-group-item{
-   /*  margin-bottom: 5px;*/
    border: none !important;
     } 
-
-
 .form-control{
     background-color: rgba(0,0,0,.05);
     cursor: pointer;
@@ -399,7 +374,6 @@ body{
         margin-right: 20px;
     }
     #gallery-frame::-webkit-scrollbar {width: 0px; }
-  
 }
 @media screen and (max-width:690px) {
     .loadingAnimation img {
@@ -417,8 +391,6 @@ body{
         margin-bottom: 20px;
         margin-right: 20px;
     }
-   
-
 }
 @media screen and (max-width:610px) {
     #gallery-frame .card  {
@@ -558,18 +530,12 @@ body{
         height: 300px;
     }
 }
-
-
-/* wrapper-main-galleries is parent element-diplay block none */
-
-
 .switch-to-single-gallery{
     display: none;
     background-color: transparent;
     width: 100%;
     height: 100%;
     position: relative;
-    
 }
 #back-from-single-to-galleries{
     margin-top: 10px;
@@ -580,12 +546,9 @@ body{
 }
 @media screen and (max-width:800px) {
     #back-from-single-to-galleries{
-       
         right: 1rem ;
-        
     }
 }
-
 .single-gallery{
     width: 100%;
     height: fit-content;
@@ -610,7 +573,6 @@ body{
     height: 100%;
     transition: transform .7s ease;
 }
-
 .single-gallery div:hover .under-grid-div {
     cursor: pointer;
     transform: scale(1.2); /* Skaliraj element za 10% */
@@ -634,36 +596,24 @@ body{
     grid-column:  span 2;
     background-color: transparent;
 }
-
-
-
 @media screen and (max-width: 645px) {
     .single-gallery {
         grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     grid-auto-rows: 200px;
     }
-
-  
 }
 @media screen and (max-width: 450px) {
     .single-gallery {
         grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     grid-auto-rows: 150px;
     }
-
-  
 }
 @media screen and (max-width: 350px) {
     .single-gallery {
         grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
     grid-auto-rows: 100px;
     }
-
-  
 }
-
-
-
 #slider {
     position: absolute;
     z-index: 9999999;
@@ -678,29 +628,18 @@ body{
     align-items: center;
     overflow: hidden;
 }
-
-
 .swiper-container {
-   
     width: 100%;
     padding: 0 ;
-    
-   
 }
-
 .swiper-slide {
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-   
-   
-    
-  /*  -webkit-box-reflect: below 5px linear-gradient(transparent,transparent,rgba(145, 12, 12, 0.4)); */
     transform-origin: center center;
     transition: transform 0.3s ease;
 }
-
 .swiper-btn-contain-cover,
 .swiper-button-prev,
 .swiper-button-next {
@@ -714,9 +653,6 @@ body{
   z-index: 9999999999999;
   font-size: 1rem;
   padding: 0 15px;
-  
-  
-  
 }
 .swiper-btn-contain-cover::after,
 .swiper-btn-contain-cover::before,
@@ -726,35 +662,27 @@ body{
 .swiper-button-next::after {
   content: none; 
 }
-
 .swiper-button-prev {
   left: 30px;
 }
-
 .swiper-button-next {
   right: 30px;
 }
 .swiper-btn-contain-cover{
     top: 92%;
-    
     display: none;
-    
 }
-
-
 #slider-off-btn{
     margin-top: 10px;
     position: absolute;
     top: 0rem;
     left: 1rem;
     display: none;
-              
 }
 .swiper-slide.swiper-slide-active{
     background-color: transparent !important;
     opacity: .2;
 }
-
 .swiper-slide.swiper-slide-next {
     background-color: transparent !important;
    position: relative;
@@ -762,20 +690,16 @@ body{
    z-index: 9999999999999999;
     transform-origin: center center !important;
     transform: scale(1); 
-  
 }
 .swiper-slide.swiper-slide-next + .swiper-slide {
     background-color: transparent !important;
     opacity: .2;
 }
-
-
 @media screen and (min-width: 993px) {
    .swiper-slide{
     height: 400px;
     width: auto;
    }
-
     .swiper-slide.swiper-slide-next {
         transform: scale(1.5) !important; 
        
@@ -783,29 +707,23 @@ body{
     .swiper-slide.swiper-slide-next + .swiper-slide {
         opacity: .3;
     }
-  
 }
 @media screen and (max-width: 992px) {
     .swiper-slide{
         height: 400px;
         width: auto;
        }
-
     .swiper-slide.swiper-slide-next {
         transform: scale(1.5) !important; 
-       
     }
     .swiper-slide.swiper-slide-next + .swiper-slide {
         opacity: .3;
     }
-  
 }
 @media screen and (max-width: 900px) {
     .swiper-slide{
         background-size: cover;
         height: 400px;
-       
-       
     }
     .swiper-slide.swiper-slide-next {
         background-color: transparent !important;
@@ -826,49 +744,33 @@ body{
         left:50%;
         transform: translateX(-55%);
         display: block;
-        
     }
-  
 }
 @media screen and (max-width: 850px) {
-    
     .swiper-slide.swiper-slide-next {
-      
         width: 30em !important;
         left: -6.5rem;
-       
     }
-  
 }
 @media screen and (max-width: 790px) {
-   
     .swiper-slide.swiper-slide-next {
-      
         width: 26rem !important;
         left: -6rem;
-       
     }
-  
 }
 @media screen and (max-width: 680px) {
     .swiper-slide{
         height: 470px !important;
     }
     .swiper-slide.swiper-slide-next {
-      
         width: 23rem !important;
         left: -5rem;
-       
     }
-  
 }
 @media screen and (max-width: 620px) {
-    
     .swiper-slide.swiper-slide-next {
-      
         width: 22rem !important;
         left: -5rem;
-       
     }
     .swiper-slide.swiper-slide-active{
         opacity: 0;
@@ -879,83 +781,54 @@ body{
     .swiper-button-prev {
         left: 10px;
       }
-      
       .swiper-button-next {
         right: 20px;
       }
-    
 }
 @media screen and (max-width: 530px) {
-    
     .swiper-slide.swiper-slide-next {
-      
-     
         left: -6rem;
-       
     }
-    
 }
 @media screen and (max-width: 470px) {
-    
     .swiper-slide.swiper-slide-next {
-      
-     
         left: -6.5rem;
-       
     }
-    
 }
 @media screen and (max-width: 435px) {
-    
     .swiper-slide.swiper-slide-next {
-      
      width: 17rem !important;
         left: -4rem;
-       
     }
-    
 }
 @media screen and (max-width: 400px) {
-    
     .swiper-slide.swiper-slide-next {
-      
         left: -4.8rem;
-       
     }
-    
 }
 @media screen and (max-width: 340px) {
     #nav-title{
        font-weight: normal;
        margin-left: none;
      }
-    
     .swiper-slide.swiper-slide-next {
         width: 16rem !important;
         left: -4.8rem;
        
     }
-    
 }
 @media screen and (max-width: 300px) {
-    
     .swiper-slide.swiper-slide-next {
         width: 15.5rem !important;
         left: -4rem;
-       
     }
-    
 }
 @media screen and (max-width: 280px) {
-    
     .swiper-slide.swiper-slide-next {
         width: 15rem !important;
         left: -3.5rem;
-       
     }
-    
 }
-
 
  /* Animacije za cards on main page*/  
  @keyframes animateOutLeft {
@@ -965,26 +838,19 @@ body{
     }
     to {
       transform: translateX(-700%);
-      
     }
   }
-  
   @keyframes animateInLeft {
     from {
       transform: translateX(-700%);
-      
-
     }
     to {
       transform: translateX(0);
-     
     }
   }
-  
   .animate-out-left {
     animation: animateOutLeft 0.8s forwards;
   }
-  
   .animate-in-left {
     animation: animateInLeft 0.6s forwards;
   }
