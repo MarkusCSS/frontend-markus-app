@@ -6,7 +6,7 @@ export const colorsBackgrounds =[
         "bodyBackgroundImg":"assets/backgrounds/large/body.large.background.png",
         "color":"rgba(0,0,0,1)",
         "cardFrameColor":"white",
-        "backgroundSpan":"rgba(250,250,250,0.234)",// span background on body backgroundImage
+        "backgroundSpan":"transparent",// span background on body backgroundImage
         "colorsOfContactQuestion":"rgb(0,0,0,.125)",//background of contact questions
         "navbarBackgroundImg":"", //image has priority of background-color on all pages   test:  assets/Markus-images/DSC04062-Enhanced-NR.jpg
         "navbarBackgroundGradient":"",// gradient(linear,conic,radial) has second priority test: conic-gradient(red,blue,green,yellow)
@@ -38,9 +38,9 @@ export const colorsBackgrounds =[
     {
         "id":4,
         "backgroundColor":"transparent",// this styles won't be used when is TRANSPARENT
-        "navbarTextColor":"white",
-        "mainColorLetters":"rgba(250,250,250,1)",//span letters color
-        "color":"rgba(250,250,250,1)",  //color of contact letters
+        "navbarTextColor":"black",
+        "mainColorLetters":"rgba(0,0,0,1)",//span letters color
+        "color":"rgba(0,0,0,1)",  //color of contact letters
         "backgroundImage":"assets/backgrounds/large/contactBackground1.png",
         "bodyBackgroundImg":"assets/backgrounds/large/body.large.background.png",
         "smallSizeBackground":"assets/backgrounds/small/contactBackgroundSmall.png",

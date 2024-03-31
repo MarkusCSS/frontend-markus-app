@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 html,body{
-    min-height: fit-content;
+    
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
 body{
+    
     background-position: center center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -136,7 +137,7 @@ body{
 .page .end{
     position: absolute;
     bottom: 0;
-    z-index: 99999999;
+    z-index: 99999999999999;
     width: 100vw;
     padding-bottom: 5px;
     font-size: 1.2rem;
