@@ -7,7 +7,7 @@ export const colorsBackgrounds =[
         "color":"rgba(0,0,0,1)",
         "cardFrameColor":"white",
         "backgroundSpan":"transparent",// span background on body backgroundImage
-        "colorsOfContactQuestion":"rgb(0,0,0,.125)",//background of contact questions
+        "colorsOfContactQuestion":"rgba(0,0,0,.125)",//background of contact questions
         "navbarBackgroundImg":"", //image has priority of background-color on all pages   test:  assets/Markus-images/DSC04062-Enhanced-NR.jpg
         "navbarBackgroundGradient":"",// gradient(linear,conic,radial) has second priority test: conic-gradient(red,blue,green,yellow)
         
